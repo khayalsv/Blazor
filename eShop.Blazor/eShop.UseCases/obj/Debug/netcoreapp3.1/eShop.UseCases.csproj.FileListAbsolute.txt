@@ -1,0 +1,13 @@
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.UseCases\bin\Debug\netcoreapp3.1\eShop.UseCases.deps.json
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.UseCases\bin\Debug\netcoreapp3.1\eShop.UseCases.dll
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.UseCases\bin\Debug\netcoreapp3.1\eShop.UseCases.pdb
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.UseCases\bin\Debug\netcoreapp3.1\eShop.CoreBusiness.dll
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.UseCases\bin\Debug\netcoreapp3.1\eShop.CoreBusiness.pdb
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.UseCases\obj\Debug\netcoreapp3.1\eShop.UseCases.csproj.AssemblyReference.cache
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.UseCases\obj\Debug\netcoreapp3.1\eShop.UseCases.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.UseCases\obj\Debug\netcoreapp3.1\eShop.UseCases.AssemblyInfoInputs.cache
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.UseCases\obj\Debug\netcoreapp3.1\eShop.UseCases.AssemblyInfo.cs
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.UseCases\obj\Debug\netcoreapp3.1\eShop.UseCases.csproj.CoreCompileInputs.cache
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.UseCases\obj\Debug\netcoreapp3.1\eShop.UseCases.csproj.CopyComplete
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.UseCases\obj\Debug\netcoreapp3.1\eShop.UseCases.dll
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.UseCases\obj\Debug\netcoreapp3.1\eShop.UseCases.pdb

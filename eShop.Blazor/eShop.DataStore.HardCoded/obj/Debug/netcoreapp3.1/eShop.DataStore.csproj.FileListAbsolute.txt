@@ -1,0 +1,5 @@
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.DataStore.HardCoded\obj\Debug\netcoreapp3.1\eShop.DataStore.csproj.AssemblyReference.cache
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.DataStore.HardCoded\obj\Debug\netcoreapp3.1\eShop.DataStore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.DataStore.HardCoded\obj\Debug\netcoreapp3.1\eShop.DataStore.AssemblyInfoInputs.cache
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.DataStore.HardCoded\obj\Debug\netcoreapp3.1\eShop.DataStore.AssemblyInfo.cs
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.DataStore.HardCoded\obj\Debug\netcoreapp3.1\eShop.DataStore.csproj.CoreCompileInputs.cache

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "2JqPKZm0l0C7rGVE/XmQtccylCULCxejYJ7EiOuJPeMsfI302xbmqtva6ruGQ8ph8uS3H19/tvxKztksBsH5Aw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\selim\\Desktop\\BlazorApp\\eShop.Blazor\\eShop.Blazor\\eShop.Blazor.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\selim\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.28\\microsoft.netcore.app.host.win-x64.3.1.28.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -84,13 +84,20 @@ using eShop.UseCases.SearchProductScreen;
 #nullable disable
 #nullable restore
 #line 12 "C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.Blazor\_Imports.razor"
-using eShop.CoreBusiness.Models;
+using eShop.UseCases.ViewProductScreen;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 14 "C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.Blazor\_Imports.razor"
+using eShop.CoreBusiness.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 16 "C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.Blazor\_Imports.razor"
 using eShop.Blazor.Controls;
 
 #line default

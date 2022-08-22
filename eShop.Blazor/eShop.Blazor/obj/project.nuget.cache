@@ -1,9 +1,22 @@
 {
   "version": 2,
-  "dgSpecHash": "2JqPKZm0l0C7rGVE/XmQtccylCULCxejYJ7EiOuJPeMsfI302xbmqtva6ruGQ8ph8uS3H19/tvxKztksBsH5Aw==",
+  "dgSpecHash": "7rY4Q34Uj77CqAOb48F+jfBLfXzGVIlYQWHMKy+nJkaeMDhnP594e+ASgRPjtGl++6x80WUjz90SVmWVxbSLhw==",
   "success": true,
   "projectFilePath": "C:\\Users\\selim\\Desktop\\BlazorApp\\eShop.Blazor\\eShop.Blazor\\eShop.Blazor.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\selim\\.nuget\\packages\\microsoft.aspnetcore.authorization\\3.1.28\\microsoft.aspnetcore.authorization.3.1.28.nupkg.sha512",
+    "C:\\Users\\selim\\.nuget\\packages\\microsoft.aspnetcore.components\\3.1.28\\microsoft.aspnetcore.components.3.1.28.nupkg.sha512",
+    "C:\\Users\\selim\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\3.1.28\\microsoft.aspnetcore.components.analyzers.3.1.28.nupkg.sha512",
+    "C:\\Users\\selim\\.nuget\\packages\\microsoft.aspnetcore.components.forms\\3.1.28\\microsoft.aspnetcore.components.forms.3.1.28.nupkg.sha512",
+    "C:\\Users\\selim\\.nuget\\packages\\microsoft.aspnetcore.components.web\\3.1.28\\microsoft.aspnetcore.components.web.3.1.28.nupkg.sha512",
+    "C:\\Users\\selim\\.nuget\\packages\\microsoft.aspnetcore.metadata\\3.1.28\\microsoft.aspnetcore.metadata.3.1.28.nupkg.sha512",
+    "C:\\Users\\selim\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\3.1.28\\microsoft.extensions.dependencyinjection.3.1.28.nupkg.sha512",
+    "C:\\Users\\selim\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\3.1.28\\microsoft.extensions.dependencyinjection.abstractions.3.1.28.nupkg.sha512",
+    "C:\\Users\\selim\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.1.28\\microsoft.extensions.logging.abstractions.3.1.28.nupkg.sha512",
+    "C:\\Users\\selim\\.nuget\\packages\\microsoft.extensions.options\\3.1.28\\microsoft.extensions.options.3.1.28.nupkg.sha512",
+    "C:\\Users\\selim\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.28\\microsoft.extensions.primitives.3.1.28.nupkg.sha512",
+    "C:\\Users\\selim\\.nuget\\packages\\microsoft.jsinterop\\3.1.28\\microsoft.jsinterop.3.1.28.nupkg.sha512",
+    "C:\\Users\\selim\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\selim\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.28\\microsoft.netcore.app.host.win-x64.3.1.28.nupkg.sha512"
   ],
   "logs": []

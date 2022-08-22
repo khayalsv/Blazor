@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "dgSpecHash": "E2ecvhgNS0K/82r1tIiZe8Y8YHF0pKNVNrf5/qZp4Yi2NluhNg/p2G1/LdOYJjsFx0vimsCMe12mFUqJi1coOg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\selim\\Desktop\\BlazorApp\\eShop.Blazor\\ClassLibrary1\\ClassLibrary1.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\selim\\.nuget\\packages\\microsoft.aspnetcore.authorization\\3.1.22\\microsoft.aspnetcore.authorization.3.1.22.nupkg.sha512",
+    "C:\\Users\\selim\\.nuget\\packages\\microsoft.aspnetcore.components\\3.1.22\\microsoft.aspnetcore.components.3.1.22.nupkg.sha512",
+    "C:\\Users\\selim\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\3.1.22\\microsoft.aspnetcore.components.analyzers.3.1.22.nupkg.sha512",
+    "C:\\Users\\selim\\.nuget\\packages\\microsoft.aspnetcore.components.forms\\3.1.22\\microsoft.aspnetcore.components.forms.3.1.22.nupkg.sha512",
+    "C:\\Users\\selim\\.nuget\\packages\\microsoft.aspnetcore.components.web\\3.1.22\\microsoft.aspnetcore.components.web.3.1.22.nupkg.sha512",
+    "C:\\Users\\selim\\.nuget\\packages\\microsoft.aspnetcore.metadata\\3.1.22\\microsoft.aspnetcore.metadata.3.1.22.nupkg.sha512",
+    "C:\\Users\\selim\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\3.1.22\\microsoft.extensions.dependencyinjection.3.1.22.nupkg.sha512",
+    "C:\\Users\\selim\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\3.1.22\\microsoft.extensions.dependencyinjection.abstractions.3.1.22.nupkg.sha512",
+    "C:\\Users\\selim\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.1.22\\microsoft.extensions.logging.abstractions.3.1.22.nupkg.sha512",
+    "C:\\Users\\selim\\.nuget\\packages\\microsoft.extensions.options\\3.1.22\\microsoft.extensions.options.3.1.22.nupkg.sha512",
+    "C:\\Users\\selim\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.22\\microsoft.extensions.primitives.3.1.22.nupkg.sha512",
+    "C:\\Users\\selim\\.nuget\\packages\\microsoft.jsinterop\\3.1.22\\microsoft.jsinterop.3.1.22.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,7 +1,10 @@
 using eShop.Blazor.Data;
+using eShop.Cart.LocalStorage;
 using eShop.DataStore;
 using eShop.UseCases.PluginInterfaces.DataStore;
+using eShop.UseCases.PluginInterfaces.UI;
 using eShop.UseCases.SearchProductScreen;
+using eShop.UseCases.ViewProductScreen;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
@@ -36,7 +39,8 @@ namespace eShop.Blazor
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<ISearchProduct, SearchProduct>();
             services.AddTransient<IViewProduct, ViewProduct>();
-
+            services.AddTransient<IAddProductToCart, AddProductToCart>();
+            services.AddScoped<IShoppingCart, ShoppingCart>();
 
         }
 

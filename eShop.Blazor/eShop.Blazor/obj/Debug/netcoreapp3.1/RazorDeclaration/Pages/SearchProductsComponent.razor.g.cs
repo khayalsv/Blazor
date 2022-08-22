@@ -84,18 +84,26 @@ using eShop.UseCases.SearchProductScreen;
 #nullable disable
 #nullable restore
 #line 12 "C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.Blazor\_Imports.razor"
-using eShop.CoreBusiness.Models;
+using eShop.UseCases.ViewProductScreen;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 14 "C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.Blazor\_Imports.razor"
+using eShop.CoreBusiness.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 16 "C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.Blazor\_Imports.razor"
 using eShop.Blazor.Controls;
 
 #line default
 #line hidden
 #nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/")]
     [Microsoft.AspNetCore.Components.RouteAttribute("/products")]
     public partial class SearchProductsComponent : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -105,7 +113,7 @@ using eShop.Blazor.Controls;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 36 "C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.Blazor\Pages\SearchProductsComponent.razor"
+#line 30 "C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.Blazor\Pages\SearchProductsComponent.razor"
        
     private IEnumerable<Product> products;
 

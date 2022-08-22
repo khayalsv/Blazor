@@ -1,0 +1,15 @@
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.ShopingCart.LocalStorage\bin\Debug\netcoreapp3.1\eShop.ShopingCart.LocalStorage.deps.json
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.ShopingCart.LocalStorage\bin\Debug\netcoreapp3.1\eShop.ShopingCart.LocalStorage.dll
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.ShopingCart.LocalStorage\bin\Debug\netcoreapp3.1\eShop.ShopingCart.LocalStorage.pdb
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.ShopingCart.LocalStorage\bin\Debug\netcoreapp3.1\eShop.CoreBusiness.dll
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.ShopingCart.LocalStorage\bin\Debug\netcoreapp3.1\eShop.UseCases.dll
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.ShopingCart.LocalStorage\bin\Debug\netcoreapp3.1\eShop.UseCases.pdb
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.ShopingCart.LocalStorage\bin\Debug\netcoreapp3.1\eShop.CoreBusiness.pdb
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.ShopingCart.LocalStorage\obj\Debug\netcoreapp3.1\eShop.ShopingCart.LocalStorage.csproj.AssemblyReference.cache
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.ShopingCart.LocalStorage\obj\Debug\netcoreapp3.1\eShop.ShopingCart.LocalStorage.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.ShopingCart.LocalStorage\obj\Debug\netcoreapp3.1\eShop.ShopingCart.LocalStorage.AssemblyInfoInputs.cache
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.ShopingCart.LocalStorage\obj\Debug\netcoreapp3.1\eShop.ShopingCart.LocalStorage.AssemblyInfo.cs
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.ShopingCart.LocalStorage\obj\Debug\netcoreapp3.1\eShop.ShopingCart.LocalStorage.csproj.CoreCompileInputs.cache
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.ShopingCart.LocalStorage\obj\Debug\netcoreapp3.1\eShop.ShopingCart.LocalStorage.csproj.CopyComplete
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.ShopingCart.LocalStorage\obj\Debug\netcoreapp3.1\eShop.ShopingCart.LocalStorage.dll
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.ShopingCart.LocalStorage\obj\Debug\netcoreapp3.1\eShop.ShopingCart.LocalStorage.pdb

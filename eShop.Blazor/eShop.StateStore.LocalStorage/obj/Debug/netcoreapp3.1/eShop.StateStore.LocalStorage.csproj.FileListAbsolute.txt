@@ -1,0 +1,15 @@
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.StateStore.LocalStorage\bin\Debug\netcoreapp3.1\eShop.StateStore.LocalStorage.deps.json
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.StateStore.LocalStorage\bin\Debug\netcoreapp3.1\eShop.StateStore.LocalStorage.dll
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.StateStore.LocalStorage\bin\Debug\netcoreapp3.1\eShop.StateStore.LocalStorage.pdb
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.StateStore.LocalStorage\bin\Debug\netcoreapp3.1\eShop.CoreBusiness.dll
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.StateStore.LocalStorage\bin\Debug\netcoreapp3.1\eShop.UseCases.dll
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.StateStore.LocalStorage\bin\Debug\netcoreapp3.1\eShop.UseCases.pdb
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.StateStore.LocalStorage\bin\Debug\netcoreapp3.1\eShop.CoreBusiness.pdb
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.StateStore.LocalStorage\obj\Debug\netcoreapp3.1\eShop.StateStore.LocalStorage.csproj.AssemblyReference.cache
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.StateStore.LocalStorage\obj\Debug\netcoreapp3.1\eShop.StateStore.LocalStorage.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.StateStore.LocalStorage\obj\Debug\netcoreapp3.1\eShop.StateStore.LocalStorage.AssemblyInfoInputs.cache
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.StateStore.LocalStorage\obj\Debug\netcoreapp3.1\eShop.StateStore.LocalStorage.AssemblyInfo.cs
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.StateStore.LocalStorage\obj\Debug\netcoreapp3.1\eShop.StateStore.LocalStorage.csproj.CoreCompileInputs.cache
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.StateStore.LocalStorage\obj\Debug\netcoreapp3.1\eShop.StateStore.LocalStorage.csproj.CopyComplete
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.StateStore.LocalStorage\obj\Debug\netcoreapp3.1\eShop.StateStore.LocalStorage.dll
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.StateStore.LocalStorage\obj\Debug\netcoreapp3.1\eShop.StateStore.LocalStorage.pdb

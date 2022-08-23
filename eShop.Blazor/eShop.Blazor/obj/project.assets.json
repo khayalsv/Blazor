@@ -229,6 +229,19 @@
           "bin/placeholder/eShop.ShopingCart.LocalStorage.dll": {}
         }
       },
+      "eShop.StateStore.LocalStorage/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "eShop.UseCases": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/eShop.StateStore.LocalStorage.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/eShop.StateStore.LocalStorage.dll": {}
+        }
+      },
       "eShop.UseCases/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
@@ -484,6 +497,11 @@
       "path": "../eShop.ShopingCart.LocalStorage/eShop.ShopingCart.LocalStorage.csproj",
       "msbuildProject": "../eShop.ShopingCart.LocalStorage/eShop.ShopingCart.LocalStorage.csproj"
     },
+    "eShop.StateStore.LocalStorage/1.0.0": {
+      "type": "project",
+      "path": "../eShop.StateStore.LocalStorage/eShop.StateStore.LocalStorage.csproj",
+      "msbuildProject": "../eShop.StateStore.LocalStorage/eShop.StateStore.LocalStorage.csproj"
+    },
     "eShop.UseCases/1.0.0": {
       "type": "project",
       "path": "../eShop.UseCases/eShop.UseCases.csproj",
@@ -494,6 +512,7 @@
     ".NETCoreApp,Version=v3.1": [
       "eShop.DataStore >= 1.0.0",
       "eShop.ShopingCart.LocalStorage >= 1.0.0",
+      "eShop.StateStore.LocalStorage >= 1.0.0",
       "eShop.UseCases >= 1.0.0"
     ]
   },
@@ -529,6 +548,9 @@
             },
             "C:\\Users\\selim\\Desktop\\BlazorApp\\eShop.Blazor\\eShop.ShopingCart.LocalStorage\\eShop.ShopingCart.LocalStorage.csproj": {
               "projectPath": "C:\\Users\\selim\\Desktop\\BlazorApp\\eShop.Blazor\\eShop.ShopingCart.LocalStorage\\eShop.ShopingCart.LocalStorage.csproj"
+            },
+            "C:\\Users\\selim\\Desktop\\BlazorApp\\eShop.Blazor\\eShop.StateStore.LocalStorage\\eShop.StateStore.LocalStorage.csproj": {
+              "projectPath": "C:\\Users\\selim\\Desktop\\BlazorApp\\eShop.Blazor\\eShop.StateStore.LocalStorage\\eShop.StateStore.LocalStorage.csproj"
             },
             "C:\\Users\\selim\\Desktop\\BlazorApp\\eShop.Blazor\\eShop.UseCases\\eShop.UseCases.csproj": {
               "projectPath": "C:\\Users\\selim\\Desktop\\BlazorApp\\eShop.Blazor\\eShop.UseCases\\eShop.UseCases.csproj"

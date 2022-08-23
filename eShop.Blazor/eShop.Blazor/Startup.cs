@@ -1,9 +1,12 @@
 using eShop.Blazor.Data;
 using eShop.Cart.LocalStorage;
 using eShop.DataStore;
+using eShop.StateStore.LocalStorage;
 using eShop.UseCases.PluginInterfaces.DataStore;
+using eShop.UseCases.PluginInterfaces.StateStore;
 using eShop.UseCases.PluginInterfaces.UI;
 using eShop.UseCases.SearchProductScreen;
+using eShop.UseCases.ShoppingCartScreen;
 using eShop.UseCases.ViewProductScreen;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
@@ -36,11 +39,17 @@ namespace eShop.Blazor
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
 
+            //storage
+            services.AddScoped<IShoppingCart, ShoppingCart>();
+            services.AddScoped<IShoppingCartStateStore, ShoppingCartStateStore>();
+
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<ISearchProduct, SearchProduct>();
             services.AddTransient<IViewProduct, ViewProduct>();
             services.AddTransient<IAddProductToCart, AddProductToCart>();
-            services.AddScoped<IShoppingCart, ShoppingCart>();
+            services.AddTransient<IViewShoppingCart, ViewShoppingCart>();
+            services.AddTransient<IDeleteProduct, DeleteProduct>();
+            services.AddTransient<IUpdateQuantity, UpdateQuantity>();
 
         }
 

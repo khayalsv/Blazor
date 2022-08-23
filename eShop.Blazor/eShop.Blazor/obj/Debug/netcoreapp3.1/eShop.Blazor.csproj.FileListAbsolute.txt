@@ -74,3 +74,13 @@ C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.Blazor\obj\Debug\netcoreapp3
 C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.Blazor\obj\Debug\netcoreapp3.1\Razor\Shared\TopNavBar.razor.g.cs
 C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.Blazor\obj\Debug\netcoreapp3.1\RazorDeclaration\Controls\ProductCardComponent.razor.g.cs
 C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.Blazor\obj\Debug\netcoreapp3.1\Razor\Controls\ProductCardComponent.razor.g.cs
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.Blazor\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\ShoppingCartComponent.razor.g.cs
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.Blazor\obj\Debug\netcoreapp3.1\Razor\Pages\ShoppingCartComponent.razor.g.cs
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.Blazor\obj\Debug\netcoreapp3.1\RazorDeclaration\Controls\LineItemComponent.razor.g.cs
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.Blazor\obj\Debug\netcoreapp3.1\RazorDeclaration\Controls\OrderSummaryComponent.razor.g.cs
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.Blazor\obj\Debug\netcoreapp3.1\Razor\Controls\LineItemComponent.razor.g.cs
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.Blazor\obj\Debug\netcoreapp3.1\Razor\Controls\OrderSummaryComponent.razor.g.cs
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.Blazor\obj\Debug\netcoreapp3.1\RazorDeclaration\Controls\CartComponent.razor.g.cs
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.Blazor\obj\Debug\netcoreapp3.1\Razor\Controls\CartComponent.razor.g.cs
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.Blazor\bin\Debug\netcoreapp3.1\eShop.StateStore.LocalStorage.dll
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.Blazor\bin\Debug\netcoreapp3.1\eShop.StateStore.LocalStorage.pdb

@@ -33,6 +33,7 @@
         "dependencies": {
           "eShop.DataStore": "1.0.0",
           "eShop.ShopingCart.LocalStorage": "1.0.0",
+          "eShop.StateStore.LocalStorage": "1.0.0",
           "eShop.UseCases": "1.0.0",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.1.0.0",
@@ -503,6 +504,17 @@
         },
         "compile": {
           "eShop.ShopingCart.LocalStorage.dll": {}
+        }
+      },
+      "eShop.StateStore.LocalStorage/1.0.0": {
+        "dependencies": {
+          "eShop.UseCases": "1.0.0"
+        },
+        "runtime": {
+          "eShop.StateStore.LocalStorage.dll": {}
+        },
+        "compile": {
+          "eShop.StateStore.LocalStorage.dll": {}
         }
       },
       "eShop.UseCases/1.0.0": {
@@ -2252,6 +2264,11 @@
       "sha512": ""
     },
     "eShop.ShopingCart.LocalStorage/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "eShop.StateStore.LocalStorage/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

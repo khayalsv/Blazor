@@ -84,3 +84,10 @@ C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.Blazor\obj\Debug\netcoreapp3
 C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.Blazor\obj\Debug\netcoreapp3.1\Razor\Controls\CartComponent.razor.g.cs
 C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.Blazor\bin\Debug\netcoreapp3.1\eShop.StateStore.LocalStorage.dll
 C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.Blazor\bin\Debug\netcoreapp3.1\eShop.StateStore.LocalStorage.pdb
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.Blazor\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.Blazor\obj\Debug\netcoreapp3.1\RazorDeclaration\Controls\CustomerFormComponent.razor.g.cs
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.Blazor\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\OrderConfirmationComponent.razor.g.cs
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.Blazor\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\PlaceOrderComponent.razor.g.cs
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.Blazor\obj\Debug\netcoreapp3.1\Razor\Controls\CustomerFormComponent.razor.g.cs
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.Blazor\obj\Debug\netcoreapp3.1\Razor\Pages\OrderConfirmationComponent.razor.g.cs
+C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.Blazor\obj\Debug\netcoreapp3.1\Razor\Pages\PlaceOrderComponent.razor.g.cs

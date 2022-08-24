@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\eShop.DataStore\eShop.DataStore.csproj" />
     <ProjectReference Include="..\eShop.ShopingCart.LocalStorage\eShop.ShopingCart.LocalStorage.csproj" />
     <ProjectReference Include="..\eShop.StateStore.LocalStorage\eShop.StateStore.LocalStorage.csproj" />

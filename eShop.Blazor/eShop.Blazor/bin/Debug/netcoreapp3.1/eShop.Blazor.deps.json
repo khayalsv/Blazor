@@ -31,6 +31,7 @@
     ".NETCoreApp,Version=v3.1": {
       "eShop.Blazor/1.0.0": {
         "dependencies": {
+          "AutoMapper": "11.0.1",
           "eShop.DataStore": "1.0.0",
           "eShop.ShopingCart.LocalStorage": "1.0.0",
           "eShop.StateStore.LocalStorage": "1.0.0",
@@ -107,7 +108,7 @@
           "Microsoft.AspNetCore.StaticFiles": "3.1.0.0",
           "Microsoft.AspNetCore.WebSockets": "3.1.0.0",
           "Microsoft.AspNetCore.WebUtilities": "3.1.0.0",
-          "Microsoft.CSharp": "4.0.0.0",
+          "Microsoft.CSharp.Reference": "4.0.0.0",
           "Microsoft.Extensions.Caching.Abstractions": "3.1.0.0",
           "Microsoft.Extensions.Caching.Memory": "3.1.0.0",
           "Microsoft.Extensions.Configuration.Abstractions": "3.1.0.0",
@@ -314,6 +315,20 @@
           "eShop.Blazor.dll": {}
         }
       },
+      "AutoMapper/11.0.1": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.7.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/AutoMapper.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.0.1.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.1/AutoMapper.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Authorization/3.1.28": {
         "dependencies": {
           "Microsoft.AspNetCore.Metadata": "3.1.28",
@@ -389,6 +404,7 @@
           "lib/netcoreapp3.1/Microsoft.AspNetCore.Metadata.dll": {}
         }
       },
+      "Microsoft.CSharp/4.7.0": {},
       "Microsoft.Extensions.DependencyInjection/3.1.28": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.28"
@@ -960,7 +976,7 @@
         },
         "compileOnly": true
       },
-      "Microsoft.CSharp/4.0.0.0": {
+      "Microsoft.CSharp.Reference/4.0.0.0": {
         "compile": {
           "Microsoft.CSharp.dll": {}
         },
@@ -2162,6 +2178,13 @@
       "serviceable": false,
       "sha512": ""
     },
+    "AutoMapper/11.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-WIadGC1pIwbnyTubvI577p3F++Bsj9q2Q3OaAc1I0QS+JhupN1xkdrPBhI9bPIeg63zM81tZplUNYkqU1HE5jQ==",
+      "path": "automapper/11.0.1",
+      "hashPath": "automapper.11.0.1.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.Authorization/3.1.28": {
       "type": "package",
       "serviceable": true,
@@ -2203,6 +2226,13 @@
       "sha512": "sha512-pMo9hImGxlL8u0dpK0/2QBh474198oUzmakgIVHZ2BAuuxzazI1xBVJ4KU0R+gpiCKBN23pHQ6GgvfLQtSa1AQ==",
       "path": "microsoft.aspnetcore.metadata/3.1.28",
       "hashPath": "microsoft.aspnetcore.metadata.3.1.28.nupkg.sha512"
+    },
+    "Microsoft.CSharp/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pTj+D3uJWyN3My70i2Hqo+OXixq3Os2D1nJ2x92FFo6sk8fYS1m1WLNTs0Dc1uPaViH0YvEEwvzddQ7y4rhXmA==",
+      "path": "microsoft.csharp/4.7.0",
+      "hashPath": "microsoft.csharp.4.7.0.nupkg.sha512"
     },
     "Microsoft.Extensions.DependencyInjection/3.1.28": {
       "type": "package",
@@ -2638,7 +2668,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.CSharp/4.0.0.0": {
+    "Microsoft.CSharp.Reference/4.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""

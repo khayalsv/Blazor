@@ -97,6 +97,13 @@ using eShop.UseCases.ShoppingCartScreen;
 #line hidden
 #nullable disable
 #nullable restore
+#line 14 "C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.Blazor\_Imports.razor"
+using eShop.UseCases.OrderConfirmationScreen;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 15 "C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.Blazor\_Imports.razor"
 using eShop.UseCases.PluginInterfaces.StateStore;
 
@@ -104,14 +111,21 @@ using eShop.UseCases.PluginInterfaces.StateStore;
 #line hidden
 #nullable disable
 #nullable restore
-#line 17 "C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.Blazor\_Imports.razor"
+#line 18 "C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.Blazor\_Imports.razor"
+using eShop.Blazor.ViewModels;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 22 "C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.Blazor\_Imports.razor"
 using eShop.CoreBusiness.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 19 "C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.Blazor\_Imports.razor"
+#line 24 "C:\Users\selim\Desktop\BlazorApp\eShop.Blazor\eShop.Blazor\_Imports.razor"
 using eShop.Blazor.Controls;
 
 #line default

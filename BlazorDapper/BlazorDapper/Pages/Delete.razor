@@ -1,0 +1,60 @@
+﻿@page "/delete/{CurrentId}"
+
+@inject NavigationManager navManager
+@inject EmployeeServiceDapper employeeService
+
+
+<form>
+    <div class="form-group">
+        <label>ID</label>
+        <label>@employee.Id</label>
+    </div>
+
+    <br />
+    <br />
+
+    <div class="form-group">
+        <label>Name</label>
+        <label>@employee.Name</label>
+    </div>
+
+    <br />
+    <br />
+
+    <div class="form-group">
+        <label>Department</label>
+        <label>@employee.Department</label>
+    </div>
+
+    <br />
+    <br />
+
+    <input type="button" class="btn btn-danger" @onclick="@DeleteEmployee" value="Delete" />
+    <input type="button" class="btn btn-success" @onclick="@BackToList" value="Cancel" />
+
+</form>
+
+@code {
+    [Parameter]
+    public string CurrentId { get; set; }
+
+    Employee employee = new Employee();
+
+    protected override async Task OnInitializedAsync()
+    {
+        employee = await Task.Run(() => employeeService.GetById(Convert.ToInt32(CurrentId)));
+    }
+
+    protected void DeleteEmployee()
+    {
+        employeeService.Delete(employee.Id);
+        BackToList();
+    }
+
+    public void BackToList()
+    {
+        navManager.NavigateTo("/");
+    }
+
+  
+}

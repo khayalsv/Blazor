@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "SJMPQxuGsEGWLBlDZoG6el6V1WBktjYn9hs/ktziUyH4R3MjZAOK7GwJiH2V5ZaT86zWWWOKv2BfjEtyKs747A==",
+  "dgSpecHash": "6WeYl1/IXuhPZhDJPKgoFoM/j/I1mP4MopiLQcd0Gt/Q7dYlB+vbllfinLyIkngpXxo8oyxh7kTXv06FK9Tp4g==",
   "success": true,
   "projectFilePath": "C:\\Users\\selim\\Desktop\\BlazorApp\\BlazorToDoList\\BlazorToDoList.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\selim\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.17\\microsoft.netcore.app.host.win-x64.5.0.17.nupkg.sha512",
+    "C:\\Users\\selim\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\selim\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\selim\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

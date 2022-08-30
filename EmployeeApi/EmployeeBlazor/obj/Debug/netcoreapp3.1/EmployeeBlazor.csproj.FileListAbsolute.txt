@@ -1,5 +1,6 @@
 C:\Users\selim\Desktop\BlazorApp\EmployeeApi\EmployeeBlazor\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\selim\Desktop\BlazorApp\EmployeeApi\EmployeeBlazor\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\selim\Desktop\BlazorApp\EmployeeApi\EmployeeBlazor\bin\Debug\netcoreapp3.1\EmployeeBlazor.StaticWebAssets.xml
 C:\Users\selim\Desktop\BlazorApp\EmployeeApi\EmployeeBlazor\bin\Debug\netcoreapp3.1\EmployeeBlazor.exe
 C:\Users\selim\Desktop\BlazorApp\EmployeeApi\EmployeeBlazor\bin\Debug\netcoreapp3.1\EmployeeBlazor.deps.json
 C:\Users\selim\Desktop\BlazorApp\EmployeeApi\EmployeeBlazor\bin\Debug\netcoreapp3.1\EmployeeBlazor.runtimeconfig.json
@@ -8,6 +9,7 @@ C:\Users\selim\Desktop\BlazorApp\EmployeeApi\EmployeeBlazor\bin\Debug\netcoreapp
 C:\Users\selim\Desktop\BlazorApp\EmployeeApi\EmployeeBlazor\bin\Debug\netcoreapp3.1\EmployeeBlazor.pdb
 C:\Users\selim\Desktop\BlazorApp\EmployeeApi\EmployeeBlazor\bin\Debug\netcoreapp3.1\EmployeeBlazor.Views.dll
 C:\Users\selim\Desktop\BlazorApp\EmployeeApi\EmployeeBlazor\bin\Debug\netcoreapp3.1\EmployeeBlazor.Views.pdb
+C:\Users\selim\Desktop\BlazorApp\EmployeeApi\EmployeeBlazor\bin\Debug\netcoreapp3.1\BlazorInputFile.dll
 C:\Users\selim\Desktop\BlazorApp\EmployeeApi\EmployeeBlazor\obj\Debug\netcoreapp3.1\EmployeeBlazor.csproj.AssemblyReference.cache
 C:\Users\selim\Desktop\BlazorApp\EmployeeApi\EmployeeBlazor\obj\Debug\netcoreapp3.1\EmployeeBlazor.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\selim\Desktop\BlazorApp\EmployeeApi\EmployeeBlazor\obj\Debug\netcoreapp3.1\EmployeeBlazor.AssemblyInfoInputs.cache
@@ -45,13 +47,11 @@ C:\Users\selim\Desktop\BlazorApp\EmployeeApi\EmployeeBlazor\obj\Debug\netcoreapp
 C:\Users\selim\Desktop\BlazorApp\EmployeeApi\EmployeeBlazor\obj\Debug\netcoreapp3.1\EmployeeBlazor.RazorAssemblyInfo.cache
 C:\Users\selim\Desktop\BlazorApp\EmployeeApi\EmployeeBlazor\obj\Debug\netcoreapp3.1\EmployeeBlazor.RazorAssemblyInfo.cs
 C:\Users\selim\Desktop\BlazorApp\EmployeeApi\EmployeeBlazor\obj\Debug\netcoreapp3.1\staticwebassets\EmployeeBlazor.StaticWebAssets.Manifest.cache
+C:\Users\selim\Desktop\BlazorApp\EmployeeApi\EmployeeBlazor\obj\Debug\netcoreapp3.1\staticwebassets\EmployeeBlazor.StaticWebAssets.xml
 C:\Users\selim\Desktop\BlazorApp\EmployeeApi\EmployeeBlazor\obj\Debug\netcoreapp3.1\EmployeeBlazor.RazorTargetAssemblyInfo.cache
 C:\Users\selim\Desktop\BlazorApp\EmployeeApi\EmployeeBlazor\obj\Debug\netcoreapp3.1\EmployeeBlazor.RazorTargetAssemblyInfo.cs
 C:\Users\selim\Desktop\BlazorApp\EmployeeApi\EmployeeBlazor\obj\Debug\netcoreapp3.1\EmployeeBlazor.Views.pdb
+C:\Users\selim\Desktop\BlazorApp\EmployeeApi\EmployeeBlazor\obj\Debug\netcoreapp3.1\EmployeeBlazor.csproj.CopyComplete
 C:\Users\selim\Desktop\BlazorApp\EmployeeApi\EmployeeBlazor\obj\Debug\netcoreapp3.1\EmployeeBlazor.dll
 C:\Users\selim\Desktop\BlazorApp\EmployeeApi\EmployeeBlazor\obj\Debug\netcoreapp3.1\EmployeeBlazor.pdb
 C:\Users\selim\Desktop\BlazorApp\EmployeeApi\EmployeeBlazor\obj\Debug\netcoreapp3.1\EmployeeBlazor.genruntimeconfig.cache
-C:\Users\selim\Desktop\BlazorApp\EmployeeApi\EmployeeBlazor\obj\Debug\netcoreapp3.1\EmployeeBlazor.csproj.CopyComplete
-C:\Users\selim\Desktop\BlazorApp\EmployeeApi\EmployeeBlazor\bin\Debug\netcoreapp3.1\EmployeeBlazor.StaticWebAssets.xml
-C:\Users\selim\Desktop\BlazorApp\EmployeeApi\EmployeeBlazor\bin\Debug\netcoreapp3.1\BlazorInputFile.dll
-C:\Users\selim\Desktop\BlazorApp\EmployeeApi\EmployeeBlazor\obj\Debug\netcoreapp3.1\staticwebassets\EmployeeBlazor.StaticWebAssets.xml

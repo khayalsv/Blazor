@@ -1,0 +1,30 @@
+﻿@page "/fetchdata"
+
+@using Telerik.Blazor.Components
+
+
+@using TelerikBlazorTest.Data
+@inject WeatherForecastService ForecastService
+
+<h1>Weather forecast</h1>
+
+<p>This component demonstrates fetching data from a service.</p>
+
+<TelerikGrid Data="forecasts" Sortable="true" Pageable="true" FilterMode="GridFilterMode.FilterMenu">
+    <GridColumns>
+        <GridColumn Field="@nameof(WeatherForecast.Date)"></GridColumn>
+        <GridColumn Field="@nameof(WeatherForecast.TemperatureC)" Title="Temp (C)"></GridColumn>
+        <GridColumn Field="@nameof(WeatherForecast.TemperatureF)"></GridColumn>
+        <GridColumn Field="@nameof(WeatherForecast.Summary)"></GridColumn>
+    </GridColumns>
+</TelerikGrid>
+
+
+@code {
+    private WeatherForecast[] forecasts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+    }
+}

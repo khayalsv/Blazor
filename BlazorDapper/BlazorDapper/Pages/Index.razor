@@ -1,0 +1,55 @@
+﻿@page "/"
+
+
+
+@inject EmployeeServiceDapper employeeService;
+@inject NavigationManager navManager
+
+
+
+
+@if (employees==null)
+{
+    <div class="alert alert-info">
+        <h4> Loading Data...</h4>
+    </div>
+}
+else
+{
+<a class="btn btn-success" href="/create"><span class="oi oi-plus" aria-hidden="true"></span> Create</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in employees)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Department</td>
+                <td>
+                    <a class="btn btn-primary" href="update/@item.Id">Edit</a>
+                    <a class="btn btn-danger" href="delete/@item.Id">Delete</a>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>}
+
+@code {
+    IEnumerable<Employee> employees;
+
+    protected override async Task OnInitializedAsync()
+    {
+        employees = await employeeService.GetAll();
+    }
+
+}

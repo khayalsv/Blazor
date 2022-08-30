@@ -93,19 +93,17 @@ using BlazorToDoList.Data;
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
             __builder.OpenElement(0, "h3");
-            __builder.AddContent(1, 
 #nullable restore
 #line 3 "C:\Users\selim\Desktop\BlazorApp\BlazorToDoList\Pages\Components\ToDo.razor"
-     HeaderName
+__builder.AddContent(1, HeaderName);
 
 #line default
 #line hidden
 #nullable disable
-            );
             __builder.CloseElement();
             __builder.AddMarkupContent(2, "\r\n\r\n\r\n");
             __builder.OpenComponent<Microsoft.AspNetCore.Components.Forms.EditForm>(3);
-            __builder.AddAttribute(4, "Model", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Object>(
+            __builder.AddAttribute(4, "Model", global::Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Object>(
 #nullable restore
 #line 6 "C:\Users\selim\Desktop\BlazorApp\BlazorToDoList\Pages\Components\ToDo.razor"
                  task
@@ -163,15 +161,13 @@ using BlazorToDoList.Data;
             ));
             __builder.AddAttribute(22, "aria-valuemax", "100");
             __builder.AddAttribute(23, "aria-valuemin", "0");
-            __builder.AddContent(24, 
 #nullable restore
 #line 14 "C:\Users\selim\Desktop\BlazorApp\BlazorToDoList\Pages\Components\ToDo.razor"
-      PercentAgeCompleted
+__builder.AddContent(24, PercentAgeCompleted);
 
 #line default
 #line hidden
 #nullable disable
-            );
             __builder.AddMarkupContent(25, "%\r\n");
             __builder.CloseElement();
             __builder.AddMarkupContent(26, "\r\n\r\n\r\n\r\n\r\n");
@@ -207,15 +203,13 @@ using BlazorToDoList.Data;
 #nullable disable
             ));
             __builder.OpenElement(32, "del");
-            __builder.AddContent(33, 
 #nullable restore
 #line 27 "C:\Users\selim\Desktop\BlazorApp\BlazorToDoList\Pages\Components\ToDo.razor"
-                      item.Name
+__builder.AddContent(33, item.Name);
 
 #line default
 #line hidden
 #nullable disable
-            );
             __builder.CloseElement();
             __builder.CloseElement();
 #nullable restore
@@ -238,15 +232,13 @@ using BlazorToDoList.Data;
 #line hidden
 #nullable disable
             ));
-            __builder.AddContent(37, 
 #nullable restore
 #line 33 "C:\Users\selim\Desktop\BlazorApp\BlazorToDoList\Pages\Components\ToDo.razor"
-                 item.Name
+__builder.AddContent(37, item.Name);
 
 #line default
 #line hidden
 #nullable disable
-            );
             __builder.CloseElement();
 #nullable restore
 #line 35 "C:\Users\selim\Desktop\BlazorApp\BlazorToDoList\Pages\Components\ToDo.razor"

@@ -6,7 +6,6 @@ C:\Users\selim\Desktop\BlazorApp\BlazorToDoList\bin\Debug\net5.0\BlazorToDoList.
 C:\Users\selim\Desktop\BlazorApp\BlazorToDoList\bin\Debug\net5.0\BlazorToDoList.runtimeconfig.json
 C:\Users\selim\Desktop\BlazorApp\BlazorToDoList\bin\Debug\net5.0\BlazorToDoList.runtimeconfig.dev.json
 C:\Users\selim\Desktop\BlazorApp\BlazorToDoList\bin\Debug\net5.0\BlazorToDoList.dll
-C:\Users\selim\Desktop\BlazorApp\BlazorToDoList\bin\Debug\net5.0\ref\BlazorToDoList.dll
 C:\Users\selim\Desktop\BlazorApp\BlazorToDoList\bin\Debug\net5.0\BlazorToDoList.pdb
 C:\Users\selim\Desktop\BlazorApp\BlazorToDoList\bin\Debug\net5.0\BlazorToDoList.Views.dll
 C:\Users\selim\Desktop\BlazorApp\BlazorToDoList\bin\Debug\net5.0\BlazorToDoList.Views.pdb
@@ -58,3 +57,4 @@ C:\Users\selim\Desktop\BlazorApp\BlazorToDoList\obj\Debug\net5.0\BlazorToDoList.
 C:\Users\selim\Desktop\BlazorApp\BlazorToDoList\obj\Debug\net5.0\BlazorToDoList.csproj.CopyComplete
 C:\Users\selim\Desktop\BlazorApp\BlazorToDoList\obj\Debug\net5.0\RazorDeclaration\Pages\Components\ToDo.razor.g.cs
 C:\Users\selim\Desktop\BlazorApp\BlazorToDoList\obj\Debug\net5.0\Razor\Pages\Components\ToDo.razor.g.cs
+C:\Users\selim\Desktop\BlazorApp\BlazorToDoList\obj\Debug\net5.0\refint\BlazorToDoList.dll

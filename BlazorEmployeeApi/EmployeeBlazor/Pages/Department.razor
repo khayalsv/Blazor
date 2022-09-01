@@ -1,0 +1,183 @@
+﻿@page "/department"
+@using System.Text.Json
+@using System.Text.Json.Serialization
+@inject IHttpClientFactory ClientFactory
+@inject Microsoft.Extensions.Configuration.IConfiguration config
+@inject IJSRuntime JS
+
+
+<h3 class="mt-5">Department</h3>
+
+
+<button type="button" class="btn btn-primary m-2 float-end" data-bs-toggle="modal" data-bs-target="#exampleModal" @onclick="addClick">Add Department</button>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in departments)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>
+                    <button 
+                        type="button" class="btn btn-success mr-1"
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModal" @onclick="(()=>editClick(item))">
+                        Edit
+                    </button>
+                    
+                     <button 
+                        type="button" class="btn btn-danger mr-1"
+                        @onclick="(()=>deleteClick(item.Id))">
+                        Delete
+                    </button>
+                    
+                </td> 
+            </tr>
+
+        }
+    </tbody>
+</table>
+
+
+<div class="modal fade" id="exampleModal" tableindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+           
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">@modalTitle</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Name</span>
+                    <input type="text" class="form-control" @bind="Name" />
+                </div>
+            </div>
+
+            @if (modalTitle=="Add Department")
+            {
+                <button type="button" class="btn btn-primary" @onclick="createClick">
+                    Create
+                </button>
+            }
+            else
+            {
+                <button type="button" class="btn btn-success" @onclick="updateClick">
+                    Update
+                </button>
+            }
+        </div>
+    </div>
+</div>
+
+
+@code {
+    public class DepartmentClass
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }         
+    }
+
+    private IEnumerable<DepartmentClass> departments = Array.Empty<DepartmentClass>();
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        await refreshList();
+    }
+
+
+    private async Task refreshList()
+    {
+        var request = new HttpRequestMessage(HttpMethod.Get, config["API_URL"] + "department");
+        var client = ClientFactory.CreateClient();
+
+        var response = await client.SendAsync(request);
+
+        using var responseStream = await response.Content.ReadAsStreamAsync();
+        departments = await JsonSerializer.DeserializeAsync<IEnumerable<DepartmentClass>>(responseStream);
+    }
+
+    private async Task createClick()
+    {
+        var departmentObj = new DepartmentClass() { Name = Name };
+
+        var request = new HttpRequestMessage(HttpMethod.Post, config["API_URL"] + "department");
+
+        request.Content = new StringContent(JsonSerializer.Serialize(departmentObj),null,"application/json");
+
+        var client = ClientFactory.CreateClient();
+
+        var response = await client.SendAsync(request);
+
+        using var responseStream = await response.Content.ReadAsStreamAsync();
+        var res = await JsonSerializer.DeserializeAsync<object>(responseStream);
+
+        await JS.InvokeVoidAsync("alert",res);
+        await refreshList();
+    }
+
+
+    private async Task updateClick()
+    {
+        var departmentObj = new DepartmentClass() {Id=Id, Name = Name };
+
+        var request = new HttpRequestMessage(HttpMethod.Put, config["API_URL"] + "department");
+
+        request.Content = new StringContent(JsonSerializer.Serialize(departmentObj), null, "application/json");
+
+        var client = ClientFactory.CreateClient();
+
+        var response = await client.SendAsync(request);
+
+        using var responseStream = await response.Content.ReadAsStreamAsync();
+        var res = await JsonSerializer.DeserializeAsync<object>(responseStream);
+
+        await JS.InvokeVoidAsync("alert", res);
+        await refreshList();
+    }
+
+    private async Task deleteClick(int id)
+    {
+        var request = new HttpRequestMessage(HttpMethod.Delete, config["API_URL"] + "department/"+id.ToString());
+
+        var client = ClientFactory.CreateClient();
+
+        var response = await client.SendAsync(request);
+
+        using var responseStream = await response.Content.ReadAsStreamAsync();
+        var res = await JsonSerializer.DeserializeAsync<object>(responseStream);
+
+        await JS.InvokeVoidAsync("alert", res);
+        await refreshList();
+    }
+
+    private string modalTitle;
+    private int Id;
+    private string Name;
+
+    private void addClick()
+    {
+        modalTitle = "Add Department";
+        Id = 0;
+        Name = "";
+    }
+
+    private void editClick(DepartmentClass department)
+    {
+        modalTitle = "Edit Department";
+        Id = department.Id;
+        Name = department.Name;
+    }
+
+}

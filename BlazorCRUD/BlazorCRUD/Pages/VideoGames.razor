@@ -1,0 +1,51 @@
+﻿@page "/"
+
+@inject NavigationManager navigationManager
+@inject IGameService gameService
+
+<h3>Video Games</h3>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Game</th>
+            <th>Developer</th>
+            <th>Release</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in gameService.Games)
+        {
+          <tr>
+                <td>@item.Name</td>
+                <td>@item.Developer</td>
+                <td>@item.Release?.ToShortDateString()</td>
+                <td>
+                    <button class="btn btn-primary" @onclick="(()=>ShowGame(item.Id))"><i class="oi oi-pencil"></i></button>
+                </td>
+          </tr>   
+        }
+    </tbody>
+</table>
+
+<button class="btn btn-primary" @onclick="CreateNewGame">Create New Game</button>
+
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await gameService.LoadGames();
+    }
+
+    void ShowGame(int id)
+    {
+        navigationManager.NavigateTo($"/singlegame/{id}");
+    }
+
+    void CreateNewGame()
+    {
+        navigationManager.NavigateTo("singlegame");
+    }
+
+}

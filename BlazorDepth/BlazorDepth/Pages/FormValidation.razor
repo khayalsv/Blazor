@@ -1,0 +1,65 @@
+﻿@page "/formvalidation"
+
+<h1>
+    Hello
+</h1>
+
+<br />
+
+<EditForm Model="person" OnValidSubmit="ValidForSubmit">
+    <DataAnnotationsValidator/>
+    <ValidationSummary/>
+    
+    <label>
+        Name:     <br />
+        <InputText id="name" @bind-Value="person.Name"></InputText>
+    </label>
+
+    <br />
+    <br />
+
+    <label>
+        Email:     <br />
+        <InputText id="email" @bind-Value="person.Email"></InputText>
+    </label>
+
+    <br />
+    <br />
+
+    <label>
+        Age:        <br />
+        <InputNumber id="age" @bind-Value="person.Age"></InputNumber>
+    </label>
+    
+    <br />
+    <br />
+
+    <input type="submit" value="Submit" />
+
+</EditForm>
+
+
+@code {
+    Person person = new Person();
+
+    class Person
+    {
+        [Required]
+        [StringLength(100)]
+        public string Name { get; set; }
+
+        [Required]
+        [EmailAddress]
+        public string Email { get; set; }
+
+        [Required]
+        [Range(1,25)]
+        public int Age { get; set; }
+        
+    }
+
+    private void ValidForSubmit()
+    {
+
+    }
+}

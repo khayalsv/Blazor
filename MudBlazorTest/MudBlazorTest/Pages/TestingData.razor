@@ -1,0 +1,55 @@
+﻿@page "/testingdata"
+
+@using System.Collections.Generic;
+
+@using MudBlazorTest.Models
+@inject IRoleService roleService
+
+<TelerikGrid Data=@GridData EditMode="@GridEditMode.Incell"
+             Height="500px"
+             Pageable="true" PageSize=@PageSize OnUpdate=@UpdateItem OnDelete=@DeleteItem OnCreate=@CreateItem>
+    <GridToolBar>
+        <GridCommandButton Command="Add" Icon="add">Add Role</GridCommandButton>
+    </GridToolBar>
+    <GridColumns>
+        <GridColumn Field=@nameof(Role.Id) Title="Role Name" Width="250px" />
+        <GridColumn Field=@nameof(Role.Name) Title="On Order" Width="150px" />
+        <GridCommandColumn Width="150px">
+            <GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
+
+        </GridCommandColumn>
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    int PageSize = 15;
+    public List<Role> GridData { get; set; }
+
+    protected override void OnInitialized()
+    {
+        LoadData();
+    }
+
+    private void LoadData()
+    {
+        GridData = roleService.GetRoles().ToList();
+    }
+
+    private void CreateItem(GridCommandEventArgs args)
+    {
+        roleService.CreateRole((Role)args.Item);
+        LoadData();
+    }
+
+    private void DeleteItem(GridCommandEventArgs args)
+    {
+        roleService.DeleteRole((Role)args.Item);
+        LoadData();
+    }
+
+    private void UpdateItem(GridCommandEventArgs args)
+    {
+        roleService.UpdateRole((Role)args.Item);
+        LoadData();
+    }
+}

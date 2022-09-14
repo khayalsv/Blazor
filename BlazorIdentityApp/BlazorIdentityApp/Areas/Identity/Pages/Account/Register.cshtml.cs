@@ -141,14 +141,14 @@ namespace BlazorIdentityApp.Areas.Identity.Pages.Account
                         protocol: Request.Scheme);
 
 
-                    string body = string.Empty;
-                    using (StreamReader reader = new StreamReader("wwwroot/templates/forgetpassword.html"))
-                    {
-                        body = reader.ReadToEnd();
-                    }
-                    body = body.Replace("{{url}}", callbackUrl);
+                    //string body = string.Empty;
+                    //using (StreamReader reader = new StreamReader("wwwroot/templates/forgetpassword.html"))
+                    //{
+                    //    body = reader.ReadToEnd();
+                    //}
+                    //body = body.Replace("{{url}}", callbackUrl);
 
-                    emailService.Send(user.Email, "Confirm Email", body);
+                    //emailService.Send(user.Email, "Confirm Email", body);
 
                     
                     await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",

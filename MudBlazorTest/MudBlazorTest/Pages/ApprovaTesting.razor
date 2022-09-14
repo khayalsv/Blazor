@@ -1,0 +1,120 @@
+﻿@*@page "/approvetesting"
+
+<MudGrid>
+   
+    <MudItem xs="6">
+        <MudButton @onclick="CreateCharacter">Create New Character</MudButton>
+
+
+        <MudPaper Class="d-flex align-center justify-center mud-width-full py-8">
+
+            <MudTable Items="characters" Hover="true" Striped="true" Dense="true" Class="mb-2">
+                <HeaderContent>
+                    <MudTh>Id</MudTh>
+                    <MudTh>Name</MudTh>
+                    <MudTh></MudTh>
+                </HeaderContent>
+                <RowTemplate>
+                    <MudTd DataLabel="Id">@context.Id</MudTd>
+                    <MudTd DataLabel="Name">@context.Name</MudTd>
+                    <MudTd DataLabel="Edit">
+                        <MudIconButton OnClick="(() => EditCharacter(context.Id))"
+                                       Icon="@Icons.Material.Filled.Edit"
+                                       Color="Color.Primary"
+                                       Variant="Variant.Filled"></MudIconButton>
+                    </MudTd>
+                </RowTemplate>
+            </MudTable>
+
+        </MudPaper>
+
+        <MudPaper Class="d-flex align-center justify-center mud-width-full py-8">
+
+
+            @if (isNew)
+            {
+                <EditForm Model="character" OnValidSubmit="HandleSubmit">
+                <DataAnnotationsValidator />
+                <MudCard>
+
+                    <MudCardContent>
+
+                        <MudNumericField Label="Id" @bind-Value="character.Id"
+                                         For="@(()=>character.Id)"
+                                         HelperText="Minimum value is 1.">
+                        </MudNumericField>
+
+
+                        <MudTextField Label="Name" @bind-Value="character.Name"
+                                      For="@(()=>character.Name)">
+                        </MudTextField>
+
+                            <MudTextField Label="Bio" @bind-Value="character.Bio"
+                                      Lines="2">
+                            </MudTextField>
+
+
+                            <MudButton ButtonType="ButtonType.Submit" Class="mr-4 mt-4">
+                                @(isNew ? "Create Character"  : null)
+                            </MudButton>
+
+                    </MudCardContent>
+                </MudCard>
+
+                
+            </EditForm>
+            }
+
+            
+
+            <p style="height:500px;"></p>
+
+        </MudPaper>
+
+
+
+    </MudItem>
+    <MudItem xs="6">
+
+
+        <MudTable Items="@characters.Take(1)" Hover="true" Breakpoint="Breakpoint.Sm"  LoadingProgressColor="Color.Info">
+            <HeaderContent>
+                <MudTh>Name</MudTh>
+                <MudTh>Bio</MudTh>
+            </HeaderContent>
+
+            <RowTemplate>
+
+                  <MudTd DataLabel="Name">
+
+                    <MudTextField @bind-Value="character.Name"></MudTextField>
+
+                  </MudTd>
+     
+                  <MudTd DataLabel="Bio">
+
+                  <MudTextField @bind-Value="character.Bio"></MudTextField>
+
+                  </MudTd>
+       
+            </RowTemplate>
+
+
+        </MudTable>
+
+
+        <MudButton ButtonType="ButtonType.Submit" Class="mr-4 mt-4">
+            @(isNew ? null : "Update Character")
+        </MudButton>
+
+        @if (!isNew)
+        {
+            <MudButton @onclick="DeleteCharacter" Class="mt-4">Delete Character</MudButton>
+        }
+
+    </MudItem>
+
+</MudGrid>
+
+
+*@

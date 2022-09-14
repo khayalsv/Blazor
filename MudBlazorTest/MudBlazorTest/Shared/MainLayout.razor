@@ -1,6 +1,5 @@
 ﻿@inherits LayoutComponentBase
 
-
 <MudThemeProvider />
 <MudDialogProvider />
 <MudSnackbarProvider />
@@ -15,16 +14,31 @@
         <NavMenu/>
     </MudDrawer>
     <MudMainContent>
+
+     
         <MudContainer MaxWidth="MaxWidth.ExtraLarge">
-        @Body
+            <TelerikRootComponent>
+                <div class="body-content">
+                    @Body
+                </div>
+            </TelerikRootComponent>
         </MudContainer>
     </MudMainContent>
 </MudLayout>
 @code {
-    bool _drawerOpen = true;
+    bool _drawerOpen = false;
 
     void DrawerToggle()
     {
         _drawerOpen = !_drawerOpen;
     }
 }
+
+<style>
+    .body-content {
+        padding: 1.25rem;
+        width: 100%;
+        height: calc(100vh - 132px);
+        overflow: auto;
+    }
+</style>

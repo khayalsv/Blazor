@@ -1,0 +1,210 @@
+﻿@page "/roleuser"
+
+@using Microsoft.AspNetCore.Authorization;
+@using Microsoft.AspNetCore.Identity;
+@inject UserManager<IdentityUser> _UserManager
+@inject RoleManager<IdentityRole> _RoleManager
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+<h3>RoleSystem</h3>
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Email</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in userList)
+        {
+            <tr>
+                <td>@item.Id.Substring(0, 5) ...</td>
+                <td>@item.Email</td>
+                <td>
+                    <button class="btn btn-primary"
+                        @onclick="(() => EditUser(item))">
+                        Edit
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+ @if (ShowPopup)
+{
+    <div class="modal" tabindex="-1" style="display:block" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Edit User</h3>
+                    <button type="button" class="close"
+                            @onclick="ClosePopup">
+                        <span aria-hidden="true">X</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                   
+                    <select class="form-control"
+                            @bind="@CurrentUserRole">
+                        @foreach (var item in roleList)
+                        {
+                            <option value="@item">
+                                @item
+                            </option>
+                        }
+                    </select>
+
+                    <br /><br />
+
+                    <button class="btn btn-primary"
+                        @onclick="SaveUser">
+                        Save
+                    </button>
+
+                    <br /><br />
+
+                    <span style="color:red">@strError</span>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+@code{
+    IdentityUser objUser = new IdentityUser();
+
+    string CurrentUserRole { get; set; } = string.Empty;
+
+    List<IdentityUser> userList = new List<IdentityUser>();
+
+    List<string> options = new List<string>(){"User","Admin"};
+
+    string strError = "";
+
+    bool ShowPopup = false;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        var RoleResult = await _RoleManager.FindByNameAsync("Admin");
+        if (RoleResult == null)
+        {
+            await _RoleManager.CreateAsync(new IdentityRole("Admin"));
+        }
+
+
+        GetUsers();
+
+        RoleList();
+    }
+
+    void GetUsers()
+    {
+        strError = "";
+        userList = new List<IdentityUser>();
+
+        var user = _UserManager.Users.Select(x => new IdentityUser
+        {
+            Id = x.Id,
+            UserName = x.UserName,
+            Email = x.Email
+        });
+
+        foreach (var item in user)
+        {
+            userList.Add(item);
+        }
+    }
+
+    async Task EditUser(IdentityUser _identityUser)
+    {
+        objUser=_identityUser;
+
+        var user = await _UserManager.FindByIdAsync(objUser.Id);
+
+
+        var role = new List<IdentityRole>();
+
+
+        if (user!=null)
+        {
+            var result = await _UserManager.IsInRoleAsync(user, "Admin");
+
+            if (result)
+                CurrentUserRole = "Admin";
+            else
+                CurrentUserRole = "User";
+
+        }
+
+        ShowPopup = true;
+    }
+
+
+    async Task SaveUser()
+    {
+
+        if (objUser.Id != "")
+        {
+            var user = await _UserManager.FindByIdAsync(objUser.Id);
+
+            var result = await _UserManager.IsInRoleAsync(user, "Admin");
+
+            if ((CurrentUserRole == "Admin") & (!result))
+            {
+                await _UserManager.AddToRoleAsync(user, "Admin");
+            }
+            else
+            {
+                if ((CurrentUserRole != "Admin") & (result))
+                {
+                    await _UserManager.RemoveFromRoleAsync(user, "Admin");
+                }
+            }
+        }
+        else
+        {
+            if (CurrentUserRole == "Admin")
+            {
+                var newUser = new IdentityUser();
+
+                await _UserManager.AddToRoleAsync(newUser, "Admin");
+            }
+
+        }
+
+        // Close the Popup
+        ShowPopup = false;
+
+        // Refresh Users
+        GetUsers();
+    }
+
+    List<IdentityRole> roleList = new List<IdentityRole>();
+
+    void RoleList()
+    {
+        roleList=new List<IdentityRole>();
+
+        var roles = _RoleManager.Roles.ToList();
+
+        foreach (var item in roles)
+        {
+            roleList.Add(item);
+        }
+    }
+
+
+    void ClosePopup()
+    {
+        ShowPopup = false;
+    }
+    
+}

@@ -1,0 +1,124 @@
+﻿@page "/adminpage"
+
+@using BlazorIdentityApp.Data
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Mvc.Rendering
+@using System.Security.Claims
+
+@inject IJSRuntime JsRuntime
+@inject UserManager<IdentityUser> _userManager
+@inject SignInManager<IdentityUser> _signInManager
+
+
+<h3>Admin</h3>
+
+<EditForm  Model="newUser" OnValidSubmit="@AddUserWithRole">
+    <DataAnnotationsValidator/>
+    <ValidationSummary/>
+  
+    <div class="form-group row"> 
+        <label for="login" class="col-sm-2 col-form-label">
+            Add User
+        </label>
+
+        <div class="col-sm-10">
+            <InputText id="login" @bind-Value="newUser.Email"></InputText>
+        </div>
+    </div>
+
+
+    <div class="form-group row">
+
+        <label for="role-select" class="col-sm-2 col-form-label">
+            Assign Role
+        </label>
+
+        <div class="col-sm-10">
+            <InputSelect id="role-select" @bind-Value="newUser.UserRole">
+                @foreach (var item in selectList)
+                {
+                    <option value="@item.Value" selected="@item.Selected">@item.Text</option>
+                }
+            </InputSelect>
+        </div>
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="Save" />
+
+</EditForm>
+
+
+@code {
+    User newUser=new User();
+    List<Role> roleList = new List<Role>();
+    List<SelectListItem> selectList = new List<SelectListItem>();
+
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        roleList = new List<Role>(){
+            new Role(){RoleName="Admin",Id="1"},
+            new Role(){RoleName="HR",Id="2"},
+            new Role(){RoleName="Manager",Id="3"},
+            new Role(){RoleName="User",Id="4"}
+        };
+
+
+        foreach (Role item in roleList)
+        {
+            if (roleList.Count<1)
+            {
+                selectList.Add(new SelectListItem()
+                {
+                    Text = item.RoleName,
+                    Value = item.Id,
+                    Selected = true
+                });
+            }
+            else
+            {
+                selectList.Add(new SelectListItem()
+                {
+                    Text = item.RoleName,
+                    Value = item.Id,
+                    Selected = false
+                });
+            }
+        }
+    }
+
+    public async void AddUserWithRole(EditContext context)
+    {
+        var userModel = context.Model as User;
+
+        var user = new IdentityUser
+            {
+                UserName = userModel.Email,
+                Email = userModel.Email,
+                EmailConfirmed = true
+            };
+
+        var message="Failed";
+
+        var result= await _userManager.CreateAsync(user,"Selimov2000!");
+
+        if (result.Succeeded)
+        {
+            message = "User was added";
+
+            var getRoleFromList = roleList.FirstOrDefault(x => x.Id == userModel?.UserRole);
+
+            var roleAddedResult = await _userManager.AddToRoleAsync(user,getRoleFromList?.RoleName ?? "User");
+
+            if (roleAddedResult.Succeeded)
+            {
+                message += "Role was added";
+            }
+        }
+
+        await JsRuntime.InvokeVoidAsync("alert", message);    
+    }
+
+    
+}

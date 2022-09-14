@@ -1,0 +1,96 @@
+﻿@page "/datatable"
+
+
+@using MudBlazorTest.Models
+
+@inject MyContext _myContext
+
+<TelerikGrid Data="@roleList"
+             Height="400px"
+             Width="700px"
+             Pageable="true"
+             OnRowClick="@OnRowClickHandler"
+             SelectionMode="@GridSelectionMode.Single"
+             @bind-SelectedItems="@SelectedItems">
+    <GridColumns>
+        <GridColumn Field="@(nameof(Role.Id))" Width="120px" />
+        <GridColumn Field="Name" Title="Employee Name" />
+
+    </GridColumns>
+</TelerikGrid>
+
+@if (ProjectData.Any())
+{
+    <br />
+    <TelerikGrid Data="@ProjectData" AutoGenerateColumns="true"
+                 Pageable="true" PageSize="4" Width="700px">
+
+    </TelerikGrid>
+}
+
+@code {
+    // enable single row selection to showcase the clicked row to the user. Not mandatory
+    public IEnumerable<Role> SelectedItems { get; set; } = Enumerable.Empty<Role>();
+
+
+    List<Role> roleList = new List<Role>();
+    List<About> aboutList = new List<About>();
+
+
+    protected override void OnInitialized()
+    {
+        roleList = _myContext.Roles.ToList();
+        aboutList = _myContext.Abouts.ToList();
+
+        ProjectData = _myContext.Abouts.ToList();
+
+
+    }
+
+    // data that will be loaded on demand for the next components - another grid in this sample
+    public List<About> ProjectData { get; set; } = new List<About>();
+
+    async Task OnRowClickHandler(GridRowClickEventArgs args)
+    {
+        var model = args.Item as Role;
+
+        ProjectData = await GetProjectData(model.Id,model.Name);
+
+        if (args.EventArgs is KeyboardEventArgs keyboardEventArgs)
+        {
+            Console.WriteLine($"The user clicked {keyboardEventArgs.Key} on row {model.Name}");
+        }
+        else if (args.EventArgs is MouseEventArgs mouseEventArgs)
+        {
+            Console.WriteLine($"The user clicked {mouseEventArgs.ClientX} {mouseEventArgs.ClientY} on row {model.Name}");
+        }
+    }
+
+    async Task<List<About>> GetProjectData(int id,string name)
+    {
+        await Task.Delay(500); // simulate loading data from a service, remove from a real app
+
+        ProjectData = new List<About>()
+        {
+            new About()
+            {
+                Id = id,
+                RoleId=id,
+                Name=name
+               
+            }
+        };
+        return await Task.FromResult(ProjectData);
+    }
+
+    public IEnumerable<Role> MyData = Enumerable.Range(1, 30).Select(x => new Role
+    {
+        Id = x,
+        Name = "name " + x
+
+    });
+
+    Role role = new Role();
+
+    About about = new About();
+}

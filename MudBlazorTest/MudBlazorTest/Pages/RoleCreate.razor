@@ -1,0 +1,77 @@
+﻿@*@page "/singlerole"
+
+@using MudBlazorTest.Models
+
+@inject IRoleService roleService
+
+@if (Id==null)
+{
+    <h3>Create a new role</h3>
+}
+else
+{
+    <h3>Edit @role.Name</h3>
+}
+
+
+<EditForm Model="role" OnSubmit="HandleSubmit">
+    <div>
+        <label for="name">Name</label>
+        <InputText id="name" @bind-Value="role.Name" class="form-control"></InputText>
+    </div>
+
+    
+    <br />
+    <br />
+    
+    <button type="submit" class="btn btn-primary">@btnText</button>
+
+    @if(Id !=null)
+    {
+        <button type="button" class="btn btn-danger" @onclick="DeleteClick">Delete Role</button>
+    }
+
+</EditForm>
+
+
+
+@code {
+    [Parameter]
+    public int? Id { get; set; }
+
+    string btnText = string.Empty;
+
+    Role role = new Role();
+
+    protected override void OnInitialized()
+    {
+        btnText = Id == null ? "Save New Role " : "Update Role";
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (Id!=null)
+        {
+            role = await roleService.GetSingleRole((int)Id);
+        }
+    }
+
+    async Task HandleSubmit()
+    {
+        if (Id == null) 
+        {
+            await roleService.CreateRole(role);
+        }
+        else
+        {
+            await roleService.UpdateRole(role, (int)Id);
+        }
+    }
+
+    async Task DeleteClick()
+    {
+        await roleService.DeleteRole(role.Id);
+    }
+}
+
+*@

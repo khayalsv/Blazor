@@ -1,9 +1,30 @@
 ﻿@page "/"
 
-<PageTitle>Index</PageTitle>
+@using MudBlazorTest.Models
+@inject MyContext _myContext
 
-<h1>Hello, world!</h1>
+<TelerikGrid Data="@roleList" Pageable="true" PageSize="30"
+    Height="300px">
+    <GridColumns>
+        <GridColumn Field="Id"></GridColumn>
+        <GridColumn Field="Name" Title="Employee Name"></GridColumn>
+    </GridColumns>
+</TelerikGrid>
 
-Welcome to your new app.
+@code {
+  
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+
+
+    List<Role> roleList = new List<Role>();
+    List<About> aboutList = new List<About>();
+
+
+    protected override void OnInitialized()
+    {
+        roleList = _myContext.Roles.ToList();
+        aboutList = _myContext.Abouts.ToList();
+    }
+}
+
+

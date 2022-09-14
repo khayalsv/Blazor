@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using Microsoft.EntityFrameworkCore;
 using MudBlazor.Services;
 using MudBlazorTest.Data;
+using MudBlazorTest.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +12,14 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 
+builder.Services.AddScoped<IRoleService,RoleService>();
+
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<MyContext>(options =>
+    options.UseSqlServer(connectionString));
+
+builder.Services.AddTelerikBlazor();
 builder.Services.AddMudServices();
 
 var app = builder.Build();

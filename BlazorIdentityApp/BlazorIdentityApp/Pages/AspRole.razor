@@ -1,0 +1,107 @@
+﻿@page "/asprole"
+
+@using Microsoft.AspNetCore.Identity;
+@using Microsoft.AspNetCore.Mvc.Rendering
+@inject UserManager<IdentityUser> _userManager
+@inject RoleManager<IdentityRole> _roleManager
+
+
+<h3>AspRole</h3>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Role Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in roleList)
+        {
+            <tr>
+                <td>@item.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>User Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in userList)
+        {
+            <tr>
+                <td>@item.UserName</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<EditForm Model="role" class="form-inline">
+    <input class="form-control mx-2" type="text" @bind-value="role.Name" />
+    <button class="btn btn-outline-primary mx-2" @onclick="AddRole">Add Role</button>
+</EditForm>
+
+
+
+
+@code {
+    List<IdentityRole> roleList = new List<IdentityRole>();
+
+    List<IdentityUser> userList = new List<IdentityUser>();
+
+    IdentityRole role = new IdentityRole();
+
+    List<SelectListItem> selectList = new List<SelectListItem>();
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        RoleList();
+
+        UserList();
+
+        AddRole();
+    }
+
+
+    void UserList()
+    {
+        userList = new List<IdentityUser>();
+
+        var users = _userManager.Users.ToList();
+
+        foreach (var item in users)
+        {
+            userList.Add(item);
+        }
+    }
+
+    void RoleList()
+    {
+        roleList=new List<IdentityRole>();
+
+        var roles = _roleManager.Roles.ToList();
+
+        foreach (var item in roles)
+        {
+            roleList.Add(item);
+        }
+    }
+
+
+
+    async Task AddRole()
+    {
+        role = new IdentityRole();
+        roleList.Add(role);
+        
+        
+    }
+
+
+}

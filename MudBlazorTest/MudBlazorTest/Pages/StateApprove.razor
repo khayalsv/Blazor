@@ -1,0 +1,61 @@
+﻿@page "/stateapprove"
+@using MudBlazorTest.Models
+
+@inject MyContext _myContext
+
+
+<MudSimpleTable Style="overflow-x: auto;">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>     
+            @foreach (var item in roleList)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                </tr>
+
+            }
+    </tbody>
+</MudSimpleTable>
+
+
+<MudSimpleTable Style="overflow-x: auto;">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in aboutList)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Amount</td>
+
+            </tr>
+
+        }
+    </tbody>
+</MudSimpleTable>
+
+
+@code {
+    List<Role> roleList = new List<Role>();
+    List<About> aboutList = new List<About>();
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        roleList = _myContext.Roles.ToList();
+        aboutList = _myContext.Abouts.ToList();
+    }
+}
+

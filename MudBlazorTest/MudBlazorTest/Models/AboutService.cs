@@ -10,130 +10,62 @@ namespace MudBlazorTest.Models
 
         private List<About> _abouts;
 
-        private List<CreateAboutDto> _products;
-
         public AboutService(MyContext dbContext)
         {
             _dbContext = dbContext;
 
         }
 
-        public IEnumerable<CreateAboutDto> GetAbouts()
+        public IEnumerable<About> GetAbouts()
         {
-            return GetProductsInternal();
+            return GetAboutsInternal();
         }
 
-
-        private IEnumerable<CreateAboutDto> GetProductsInternal()
+        private IEnumerable<About> GetAboutsInternal()
         {
-            if (_products == null)
+            if (_abouts == null)
             {
-                // downloading the data before selecting fix a problem with closed db connection in sqlite.
-                // The problem may be related to: https://github.com/dotnet/efcore/issues/24015
-                _products = _dbContext.Abouts.Include("Role").ToList().Select(CreateAboutDto.AboutFunc).ToList();
+                //_abouts = _dbContext.Abouts.ToList();
+                _abouts = _dbContext.Abouts.Include(x => x.Role).ToList();
             }
 
-            return _products;
+            return _abouts;
         }
 
 
-
-        public void UpdateAbout(CreateAboutDto product)
+        public void CreateAbout(About about)
         {
-          
-            var target = _abouts.FirstOrDefault(p => p.Id == product.AboutId);
+            var aboutCount = _dbContext.Abouts.Count();
+
+
+            about.RoleId = 224;
+            about.Name = "User";
+            about.AboutCount = aboutCount + 1;
+
+
+            _dbContext.Abouts.Add(about);
+
+
+            _abouts.Add(about);
+
+            _dbContext.SaveChanges();
+
+        }
+
+
+        public void UpdateAbout(About about)
+        {
+            var target = _abouts.FirstOrDefault(p => p.Id == about.Id);
             if (target != null)
             {
-                target.Name = product.Name;
-                target.Amount = product.Amount;
-                target.AboutCount = product.AboutCount;
-                target.RoleId = product.RoleId;
-               
-               
+                target.Name = about.Name;
+                target.AboutCount = about.AboutCount;
+                target.Amount = about.Amount;
+                target.RoleId = about.RoleId;
             }
 
             _dbContext.SaveChanges();
         }
-
-        //private IEnumerable<About> GetAboutsInternal()
-        //{
-        //    if (_abouts == null)
-        //    {
-
-        //        _abouts = _dbContext.Abouts.Include(x => x.Role).ToList();
-        //    }
-
-        //    return _abouts;
-        //}
-
-
-        //private IEnumerable<About> GetAboutsInternal()
-        //{
-        //    if (_abouts == null)
-        //    {
-        //        _abouts = _dbContext.Abouts.ToList();
-        //    }
-
-        //    return _abouts;
-        //}
-
-
-        //public void CreateAbout(CreateAboutDto request)
-        //{
-
-        //    var role = _dbContext.Roles.Find(request.RoleId);
-        //    if (role == null)
-        //    {
-        //        throw new InvalidOperationException("role null.");
-        //    }
-
-        //    var newAbout = new About
-        //    {
-        //        Name = request.Name,
-        //        AboutCount = request.AboutCount + 1,
-        //        Amount = request.Amount,
-        //        Role = role
-
-        //    };
-
-
-        //    _dbContext.Abouts.Add(newAbout);
-
-        //    _abouts.Add(newAbout);
-
-        //    _dbContext.SaveChanges();
-
-        //}
-
-
-
-
-        public void CreateAbout(CreateAboutDto product)
-        {
-            if (!_products.Any())
-            {
-                product.AboutId = 1;
-            }
-            else
-            {
-                product.AboutId = _products.Max(p => p.AboutId) + 1;
-            }
-
-            _products.Insert(0, product);
-        }
-
-
-        //public void UpdateAbout(About about)
-        //{
-
-        //    var target = _abouts.FirstOrDefault(p => p.Id == about.Id);
-        //    if (target != null)
-        //    {
-        //        target.Name = about.Name;
-        //    }
-
-        //    _dbContext.SaveChanges();
-        //}
 
 
         public void DeleteAbout(About about)

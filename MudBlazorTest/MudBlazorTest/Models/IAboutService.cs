@@ -2,9 +2,9 @@
 {
     public interface IAboutService
     {
-        void CreateAbout(CreateAboutDto request);
+        void CreateAbout(About about);
         void DeleteAbout(About about);
-        IEnumerable<CreateAboutDto> GetAbouts();
-        void UpdateAbout(CreateAboutDto about);
+        IEnumerable<About> GetAbouts();
+        void UpdateAbout(About about);
     }
 }

@@ -15,8 +15,7 @@
         <GridColumn Field=@nameof(About.Name) Title="Approve Stage Details Name" />
         <GridColumn Field=@nameof(About.AboutCount) Title="Sequence" />
         <GridColumn Field=@nameof(About.Amount) Title="Amount" />
-        <GridColumn Field=@nameof(About.RoleId) Title="Role Name" />
-
+        <GridColumn Field=@nameof(About.RoleId) Title="Role Id" />
 
         <GridCommandColumn Title="Action">
             <GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
@@ -26,7 +25,7 @@
 
 @code {
     int PageSize = 15;
-    public List<CreateAboutDto> GridData { get; set; }
+    public List<About> GridData { get; set; }
 
     protected override void OnInitialized()
     {
@@ -40,7 +39,7 @@
 
     private void CreateItem(GridCommandEventArgs args)
     {
-        aboutService.CreateAbout((CreateAboutDto)args.Item);
+        aboutService.CreateAbout((About)args.Item);
         LoadData();
     }
 
@@ -52,7 +51,7 @@
 
     private void UpdateItem(GridCommandEventArgs args)
     {
-        aboutService.UpdateAbout((CreateAboutDto)args.Item);
+        aboutService.UpdateAbout((About)args.Item);
         LoadData();
     }
 }

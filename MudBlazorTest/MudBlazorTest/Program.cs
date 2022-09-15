@@ -14,6 +14,7 @@ builder.Services.AddSingleton<WeatherForecastService>();
 
 builder.Services.AddScoped<IRoleService,RoleService>();
 builder.Services.AddScoped<IAboutService, AboutService>();
+builder.Services.AddScoped<ITestAboutService, TestAboutService>();
 
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");

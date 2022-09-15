@@ -8,6 +8,8 @@
         public Role Role { get; set; }
         public int RoleId { get; set; }
 
+        public int AboutCount { get; set; }
 
+   
     }
 }

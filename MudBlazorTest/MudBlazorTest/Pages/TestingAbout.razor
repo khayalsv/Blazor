@@ -1,0 +1,58 @@
+﻿@page "/testingabout"
+
+@using System.Collections.Generic;
+
+@using MudBlazorTest.Models
+@inject IAboutService aboutService
+
+<TelerikGrid Data=@GridData EditMode="@GridEditMode.Incell"
+             Height="500px"
+             Pageable="true" PageSize=@PageSize OnUpdate=@UpdateItem OnDelete=@DeleteItem OnCreate=@CreateItem>
+    <GridToolBar>
+        <GridCommandButton Command="Add" Icon="add">Add About</GridCommandButton>
+    </GridToolBar>
+    <GridColumns>
+        <GridColumn Field=@nameof(About.Name) Title="Approve Stage Details Name" />
+        <GridColumn Field=@nameof(About.AboutCount) Title="Sequence" />
+        <GridColumn Field=@nameof(About.Amount) Title="Amount" />
+        <GridColumn Field=@nameof(About.RoleId) Title="Role Name" />
+
+
+        <GridCommandColumn Title="Action">
+            <GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
+        </GridCommandColumn>
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    int PageSize = 15;
+    public List<CreateAboutDto> GridData { get; set; }
+
+    protected override void OnInitialized()
+    {
+        LoadData();
+    }
+
+    private void LoadData()
+    {
+        GridData = aboutService.GetAbouts().ToList();
+    }
+
+    private void CreateItem(GridCommandEventArgs args)
+    {
+        aboutService.CreateAbout((CreateAboutDto)args.Item);
+        LoadData();
+    }
+
+    private void DeleteItem(GridCommandEventArgs args)
+    {
+        aboutService.DeleteAbout((About)args.Item);
+        LoadData();
+    }
+
+    private void UpdateItem(GridCommandEventArgs args)
+    {
+        aboutService.UpdateAbout((CreateAboutDto)args.Item);
+        LoadData();
+    }
+}

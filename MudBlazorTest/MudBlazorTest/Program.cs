@@ -13,6 +13,7 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 
 builder.Services.AddScoped<IRoleService,RoleService>();
+builder.Services.AddScoped<IAboutService, AboutService>();
 
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");

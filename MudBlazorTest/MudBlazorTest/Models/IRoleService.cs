@@ -2,9 +2,9 @@
 {
     public interface IRoleService
     {
-        void CreateRole(Role product);
-        void DeleteRole(Role product);
+        void CreateRole(Role role);
+        void DeleteRole(Role role);
         IEnumerable<Role> GetRoles();
-        void UpdateRole(Role product);
+        void UpdateRole(Role role);
     }
 }

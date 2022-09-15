@@ -8,10 +8,11 @@ namespace MudBlazorTest.Models
         private readonly MyContext _dbContext;
 
         private List<Role> _roles;
-
+        
         public RoleService(MyContext dbContext)
         {
             _dbContext = dbContext;
+
         }
 
         public IEnumerable<Role> GetRoles()
@@ -19,28 +20,32 @@ namespace MudBlazorTest.Models
             return GetRolesInternal();
         }
 
+        private IEnumerable<Role> GetRolesInternal()
+        {
+            if (_roles == null)
+            {
+                _roles = _dbContext.Roles.ToList();
+            }
+
+            return _roles;
+        }
+
 
         public void CreateRole(Role role)
         {
-            if (!_roles.Any())
-            {
-                role.Id = 1;
-            }
-            else
-            {
-                role.Id = _roles.Max(p => p.Id) + 1;
-            }
+            var roleCount = _dbContext.Roles.Count();
+
+            role.Name = "User";
+            role.RoleCount = roleCount+1;
 
 
-            _roles.Insert(0, role)
-
-            //_dbContext.SaveChanges();
-
-            //_dbContext.Roles.Add(role);
+            _dbContext.Roles.Add(role);
 
 
+            _roles.Add(role);
 
-           
+            _dbContext.SaveChanges();
+
         }
 
 
@@ -62,22 +67,12 @@ namespace MudBlazorTest.Models
             if (target != null)
             {
                 _roles.Remove(target);
-            }
+                _dbContext.Roles.Remove(target);
 
-            _dbContext.Roles.Remove(target);
+            }
 
             _dbContext.SaveChanges();
 
-        }
-        private IEnumerable<Role> GetRolesInternal()
-        {
-            if (_roles == null)
-            {
-
-                _roles = _dbContext.Roles.ToList();
-            }
-
-            return _roles;
         }
     }
 }

@@ -12,11 +12,10 @@
         <GridCommandButton Command="Add" Icon="add">Add Role</GridCommandButton>
     </GridToolBar>
     <GridColumns>
-        <GridColumn Field=@nameof(Role.Id) Title="Role Name" Width="250px" />
-        <GridColumn Field=@nameof(Role.Name) Title="On Order" Width="150px" />
-        <GridCommandColumn Width="150px">
+        <GridColumn Field=@nameof(Role.Name) Title="Approve Stage Details Name" />
+        <GridColumn Field=@nameof(Role.RoleCount) Title="Sequence" />
+        <GridCommandColumn Title="Action">
             <GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
-
         </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>

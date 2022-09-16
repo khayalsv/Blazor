@@ -1,0 +1,117 @@
+﻿@page "/"
+
+@using System.Collections.Generic;
+
+@inject IRoleService roleService
+@inject IAboutService aboutService
+
+
+
+<div class="row">
+    <div class="col-6">
+
+        <TelerikGrid Data=@GridData EditMode="@GridEditMode.Incell"
+                     Height="500px"
+                     Pageable="true" PageSize=@PageSize OnUpdate=@UpdateItem OnDelete=@DeleteItem OnCreate=@CreateItem>
+            <GridToolBar>
+                <GridCommandButton Command="Add" Icon="add">Add Role</GridCommandButton>
+            </GridToolBar>
+            <GridColumns>
+                <GridColumn Field=@nameof(Role.Name) Title="Approve Stage Details Name" />
+                <GridColumn Field=@nameof(Role.Sequence) Title="Sequence" />
+                <GridCommandColumn Title="Action">
+                    <GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
+                </GridCommandColumn>
+            </GridColumns>
+        </TelerikGrid>
+    </div>
+
+
+    <div class="col-6">
+    <TelerikGrid Data=@GridDataAbout EditMode="@GridEditMode.Incell"
+                 Height="500px"
+                 Pageable="true" PageSize=@PageSize OnUpdate=@UpdateItemAbout OnDelete=@DeleteItemAbout OnCreate=@CreateItemAbout>
+        <GridToolBar>
+            <GridCommandButton Command="Add" Icon="add">Add About</GridCommandButton>
+        </GridToolBar>
+        <GridColumns>
+            <GridColumn Field=@nameof(About.Name) Title="Users Name" />
+            <GridColumn Field=@nameof(About.Sequence) Title="Sequence" />
+            <GridColumn Field=@nameof(About.Amount) Title="Amount" />
+            <GridColumn Field=@nameof(About.RoleId) Title="Role Id" />
+
+            <GridCommandColumn Title="Action">
+                <GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
+            </GridCommandColumn>
+        </GridColumns>
+    </TelerikGrid>
+    </div>
+
+</div>
+
+@code {
+    int PageSize = 15;
+    public List<Role>? GridData { get; set; }
+    public List<About>? GridDataAbout { get; set; }
+
+
+    protected override void OnInitialized()
+    {
+        LoadData();
+        LoadDataAbout();
+
+    }
+
+    //Role
+
+    private void LoadData()
+    {
+        GridData = roleService.GetRoles().ToList();
+
+    }
+
+    private void CreateItem(GridCommandEventArgs args)
+    {
+        roleService.CreateRole((Role)args.Item);
+        LoadData();
+    }
+
+    private void DeleteItem(GridCommandEventArgs args)
+    {
+        roleService.DeleteRole((Role)args.Item);
+        LoadData();
+    }
+
+    private void UpdateItem(GridCommandEventArgs args)
+    {
+        roleService.UpdateRole((Role)args.Item);
+        LoadData();
+    }
+
+   
+    //About
+
+
+    private void LoadDataAbout()
+    {
+        GridDataAbout = aboutService.GetAbouts().ToList();
+    }
+
+    private void CreateItemAbout(GridCommandEventArgs args)
+    {
+        aboutService.CreateAbout((About)args.Item);
+        LoadDataAbout();
+    }
+
+    private void DeleteItemAbout(GridCommandEventArgs args)
+    {
+        aboutService.DeleteAbout((About)args.Item);
+        LoadDataAbout();
+    }
+
+    private void UpdateItemAbout(GridCommandEventArgs args)
+    {
+        aboutService.UpdateAbout((About)args.Item);
+        LoadDataAbout();
+    }
+}

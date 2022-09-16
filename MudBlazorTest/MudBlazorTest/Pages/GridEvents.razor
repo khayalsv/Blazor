@@ -1,0 +1,102 @@
+﻿@*@page "/gridevents"
+
+@using System.Collections.Generic;
+
+@using MudBlazorTest.Models
+@inject IRoleService roleService
+@inject MyContext _myConte
+
+<TelerikGrid Data=@GridData EditMode="@GridEditMode.Incell"
+             Height="500px"
+             OnRowClick="@OnRowClickHandler"
+             SelectionMode="@GridSelectionMode.Single"
+             Pageable="true" PageSize=@PageSize OnUpdate=@UpdateItem OnDelete=@DeleteItem OnCreate=@CreateItem>
+    <GridToolBar>
+        <GridCommandButton Command="Add" Icon="add">Add Role</GridCommandButton>
+    </GridToolBar>
+    <GridColumns>
+        <GridColumn Field=@nameof(Role.Name) Title="Approve Stage Details Name" />
+        <GridColumn Field=@nameof(Role.RoleCount) Title="Sequence" />
+        <GridCommandColumn Title="Action">
+            <GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
+        </GridCommandColumn>
+    </GridColumns>
+</TelerikGrid>
+
+
+@if (AboutData.Any())
+{
+    <br />
+    <TelerikGrid Data="@AboutData" AutoGenerateColumns="true"
+                 Pageable="true" PageSize="4" Width="700px">
+    </TelerikGrid>
+}
+
+@code {
+    int PageSize = 15;
+    public List<Role> GridData { get; set; }
+
+    public List<About> AboutData { get; set; } = new List<About>();
+
+
+    protected override void OnInitialized()
+    {
+        
+        LoadData();
+    }
+
+    private void LoadData()
+    {
+        GridData = roleService.GetRoles().ToList();
+    }
+
+    private void CreateItem(GridCommandEventArgs args)
+    {
+        roleService.CreateRole((Role)args.Item);
+        LoadData();
+    }
+
+    private void DeleteItem(GridCommandEventArgs args)
+    {
+        roleService.DeleteRole((Role)args.Item);
+        LoadData();
+    }
+
+    private void UpdateItem(GridCommandEventArgs args)
+    {
+        roleService.UpdateRole((Role)args.Item);
+        LoadData();
+    }
+
+
+    async Task OnRowClickHandler(GridRowClickEventArgs args)
+    {
+        var model = args.Item as Role;
+
+        AboutData = await GetProjectData(model.Id,model.Name);
+
+        if (args.EventArgs is KeyboardEventArgs keyboardEventArgs)
+        {
+            Console.WriteLine($"The user clicked {keyboardEventArgs.Key} on row {model.Name}");
+        }
+        else if (args.EventArgs is MouseEventArgs mouseEventArgs)
+        {
+            Console.WriteLine($"The user clicked {mouseEventArgs.ClientX} {mouseEventArgs.ClientY} on row {model.Name}");
+        }
+    }
+
+    async Task<List<About>> GetProjectData(int id,string name)
+    {
+        await Task.Delay(500); // simulate loading data from a service, remove from a real app
+
+        AboutData = new List<About>()
+        {
+            new About()
+            {
+                Id = id,
+                Name=name
+            }
+        };
+        return await Task.FromResult(AboutData);
+    }
+}*@

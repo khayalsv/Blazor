@@ -1,54 +1,61 @@
-﻿@*@using System.Collections.Generic;
-@using MudBlazorTest.Models
+﻿@page "/testingmain"
 @using Telerik.Blazor.Components
-@inject IRoleService roleService
 
-<TelerikGrid Data=@GridData EditMode="@GridEditMode.Incell"
-             Height="500px"
-             Pageable="true" PageSize=@PageSize
-             OnUpdate=@UpdateItem OnDelete=@DeleteItem OnCreate=@CreateItem>
-    <GridToolBar>
-        <GridCommandButton Command="Add" Icon="add">Add Role</GridCommandButton>
-    </GridToolBar>
+@using MudBlazorTest.Models
+
+
+<TelerikGrid Data="salesTeamMembers"
+             OnRowCollapse="@OnRowCollapseHandler">
+    <DetailTemplate>
+        @{
+            var employee = context.Roles.ToList();
+            <TelerikGrid Data="roleList" Pageable="true" PageSize="5">
+                <GridColumns>
+                    <GridColumn Field="Name"></GridColumn>
+                </GridColumns>
+            </TelerikGrid>
+        }
+    </DetailTemplate>
     <GridColumns>
-        <GridColumn Field=@nameof(Role.Name) Title="Role Name" Width="250px" />
-      
-        <GridCommandColumn Width="150px">
-                           <GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
-
-        </GridCommandColumn>
+        <GridColumn Field="Id"></GridColumn>
+        <GridColumn Field="Name"></GridColumn>
     </GridColumns>
 </TelerikGrid>
 
+<br />
+
+@logger
+
 @code {
-    int PageSize = 15;
-    public List<Role> GridData { get; set; }
+    List<Role> roleList = new List<Role>();
+    private readonly MyContext context;
+
+    void OnRowCollapseHandler(GridRowCollapseEventArgs args)
+    {
+        
+        Role item = args.Item as Role;
+        logger = $"The collapsed row is with id: {item.Id}";
+    }
+
+    public string logger { get; set; } = String.Empty;
+    List<Role> salesTeamMembers { get; set; }
 
     protected override void OnInitialized()
     {
-        LoadData();
+        salesTeamMembers = GenerateData();
     }
 
-    private void LoadData()
+    private List<Role> GenerateData()
     {
-        GridData = roleService.GetRoles().ToList();
+        List<Role> data = new List<Role>();
+        for (int i = 0; i < 5; i++)
+        {
+            Role mdl = new Role { Id = i, Name = $"Name {i}" };
+            mdl.Abouts = Enumerable.Range(1, 15).Select(x => new About { Id = x, AboutCount = x ^ i }).ToList();
+            data.Add(mdl);
+        }
+        return data;
     }
 
-    private void CreateItem(GridCommandEventArgs args)
-    {
-        roleService.CreateRole((Role)args.Item);
-        LoadData();
-    }
-
-    private void DeleteItem(GridCommandEventArgs args)
-    {
-        roleService.DeleteRole((Role)args.Item);
-        LoadData();
-    }
-
-    private void UpdateItem(GridCommandEventArgs args)
-    {
-        roleService.UpdateRole((Role)args.Item);
-        LoadData();
-    }
-}*@
+    
+}

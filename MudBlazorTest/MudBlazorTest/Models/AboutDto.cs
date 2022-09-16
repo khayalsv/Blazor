@@ -9,16 +9,16 @@
         public int RoleId { get; set; }
         public string RoleName { get; set; }
 
-        public static Func<About, AboutDto> AboutFunc = (about) =>
-            new AboutDto
-            {
-                Id = about.Id,
-                Name = about.Name,
-                Amount = about.Amount,
-                AboutCount = about.AboutCount,
-                RoleId = about.RoleId,
-                RoleName = about.Role.Name
-            };
+        //public static Func<About, AboutDto> AboutFunc = (about) =>
+        //    new AboutDto
+        //    {
+        //        Id = about.Id,
+        //        Name = about.Name,
+        //        Amount = about.Amount,
+        //        AboutCount = about.AboutCount,
+        //        RoleId = about.RoleId,
+        //        RoleName = about.Role.Name
+        //    };
 
     }
 }

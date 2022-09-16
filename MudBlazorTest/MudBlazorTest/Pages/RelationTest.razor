@@ -1,0 +1,68 @@
+﻿@*@page "/relationtest"
+@using Telerik.Blazor.Components
+
+@using MudBlazorTest.Models
+@inject MyContext _myContext
+
+<TelerikGrid Data="roleList"
+             OnRowCollapse="@OnRowCollapseHandler">
+    <DetailTemplate>
+        @{
+            var employee = role;
+                <TelerikGrid Data="employee.Abouts.(x=>x.Role)" Pageable="true" PageSize="5">
+                    <GridColumns>
+                        <GridColumn Field="Name"></GridColumn>
+                    </GridColumns>
+                </TelerikGrid>
+        }
+    </DetailTemplate>
+    <GridColumns>
+        <GridColumn Field="Id"></GridColumn>
+        <GridColumn Field="Name"></GridColumn>
+    </GridColumns>
+</TelerikGrid>
+
+<br />
+
+@logger
+
+
+@code {
+    Role role = new Role();
+    List<Role> roleList = new List<Role>();
+    List<About> aboutList = new List<About>();
+
+
+    protected override void OnInitialized()
+    {
+        role = new Role();
+        roleList = _myContext.Roles.ToList();
+        aboutList = _myContext.Abouts.ToList();
+    }
+    void OnRowCollapseHandler(GridRowCollapseEventArgs args)
+    {
+
+        Role item = args.Item as Role;
+        logger = $"The collapsed row is with id: {item.Id}";
+    }
+
+    public string logger { get; set; } = String.Empty;
+    List<Role> salesTeamMembers { get; set; }
+
+   
+
+    private List<Role> GenerateData()
+    {
+        List<Role> data = new List<Role>();
+        for (int i = 0; i < 5; i++)
+        {
+            Role mdl = new Role { Id = i, Name = $"Name {i}" };
+            mdl.Abouts = Enumerable.Range(1, 15).Select(x => new About { Id = x, AboutCount = x ^ i }).ToList();
+            data.Add(mdl);
+        }
+        return data;
+    }
+
+
+}
+*@

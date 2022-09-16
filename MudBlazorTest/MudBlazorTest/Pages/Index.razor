@@ -1,20 +1,47 @@
 ﻿@page "/"
 
+
 @using MudBlazorTest.Models
 @inject MyContext _myContext
 
+@inject IRoleService roleService
+
 <TelerikGrid Data="@roleList" Pageable="true" PageSize="30"
-    Height="300px">
+             Height="300px">
     <GridColumns>
         <GridColumn Field="Id"></GridColumn>
         <GridColumn Field="Name" Title="Employee Name"></GridColumn>
     </GridColumns>
+
 </TelerikGrid>
+@*
+<TelerikDropDownList Data="roleList"
+                     GroupField="Name"
+                     ValueField="Id"
+                     TextField="ProductName"
+                     @bind-Value="@SelectedProduct"
+                     Id="selectId">
+</TelerikDropDownList>*@
+
+<select class="form-select" aria-label="Default select example">
+  <option selected>Open this select menu</option>
+
+@foreach (var item in roleList)
+    {
+        <option value="@item.Id">@item.Name</option>
+
+    }
+ 
+</select>
 
 @code {
-  
 
 
+    public int SelectedProduct { get; set; }
+
+    public IEnumerable<Role> Data { get; set; }
+
+ 
 
     List<Role> roleList = new List<Role>();
     List<About> aboutList = new List<About>();
@@ -22,9 +49,9 @@
 
     protected override void OnInitialized()
     {
+        Data = roleService.GetRoles();
+
         roleList = _myContext.Roles.ToList();
         aboutList = _myContext.Abouts.ToList();
     }
 }
-
-

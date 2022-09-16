@@ -71,13 +71,18 @@ namespace MudBlazorTest.Migrations
 
             modelBuilder.Entity("MudBlazorTest.Models.About", b =>
                 {
-                    b.HasOne("MudBlazorTest.Models.Role", "Role")
-                        .WithMany()
+                    b.HasOne("MudBlazorTest.Models.Role", "Roles")
+                        .WithMany("Abouts")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Role");
+                    b.Navigation("Roles");
+                });
+
+            modelBuilder.Entity("MudBlazorTest.Models.Role", b =>
+                {
+                    b.Navigation("Abouts");
                 });
 #pragma warning restore 612, 618
         }

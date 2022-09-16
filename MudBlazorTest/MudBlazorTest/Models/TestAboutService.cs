@@ -65,7 +65,7 @@ namespace MudBlazorTest.Models
             {
                 // downloading the data before selecting fix a problem with closed db connection in sqlite.
                 // The problem may be related to: https://github.com/dotnet/efcore/issues/24015
-                _abouts = _dbContext.Abouts.Include("Role").ToList().Select(AboutDto.AboutFunc).ToList();
+                //_abouts = _dbContext.Abouts.Include("Role").ToList().Select(AboutDto.AboutFunc).ToList();
             }
 
             return _abouts;

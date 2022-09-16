@@ -39,6 +39,17 @@
             <GridColumn Field=@nameof(About.Sequence) Title="Sequence" />
             <GridColumn Field=@nameof(About.Amount) Title="Amount" />
             <GridColumn Field=@nameof(About.RoleId) Title="Role Id" />
+                <GridColumn Field=@nameof(About.Role.Sequence) Title="Role Name" />
+                
+            <GridCommandColumn Title="Role Id">
+                        <TelerikDropDownList Data="@GridData"
+                                             ValueField="Id"
+                                             TextField="Id"
+                                             @bind-Value="@SelectedRole"
+                                             Id="selectId">
+                        </TelerikDropDownList>
+            </GridCommandColumn>
+
 
             <GridCommandColumn Title="Action">
                 <GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
@@ -49,7 +60,11 @@
 
 </div>
 
+
 @code {
+    public int SelectedRole { get; set; }
+
+
     int PageSize = 15;
     public List<Role>? GridData { get; set; }
     public List<About>? GridDataAbout { get; set; }
@@ -59,7 +74,6 @@
     {
         LoadData();
         LoadDataAbout();
-
     }
 
     //Role

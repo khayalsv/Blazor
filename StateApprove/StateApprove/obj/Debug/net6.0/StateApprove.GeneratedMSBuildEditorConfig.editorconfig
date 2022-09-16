@@ -19,6 +19,18 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/selim/Desktop/BlazorApp/StateApprove/StateApprove/Pages/DropList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRHJvcExpc3QucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/selim/Desktop/BlazorApp/StateApprove/StateApprove/Pages/Grid.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR3JpZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/selim/Desktop/BlazorApp/StateApprove/StateApprove/Pages/GridMain.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR3JpZE1haW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/selim/Desktop/BlazorApp/StateApprove/StateApprove/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 

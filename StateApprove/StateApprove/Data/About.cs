@@ -1,4 +1,6 @@
-﻿namespace StateApprove.Data
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace StateApprove.Data
 {
     public class About
     {
@@ -8,5 +10,9 @@
         public double Amount { get; set; }
         public Role? Role { get; set; }
         public int RoleId { get; set; }
+
+       
+
+
     }
 }

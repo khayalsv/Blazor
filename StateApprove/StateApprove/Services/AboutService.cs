@@ -26,6 +26,7 @@ namespace StateApprove.Services
             {
                 //_abouts = _dbContext.Abouts.ToList();
                 _abouts = _dbContext.Abouts.Include(x => x.Role).ToList();
+                //_abouts = _dbContext.Abouts.Include("Role").ToList().Select(AboutDto.AboutFunc).ToList();
             }
 
             return _abouts;

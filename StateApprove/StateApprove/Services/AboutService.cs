@@ -37,7 +37,17 @@ namespace StateApprove.Services
         {
             var aboutCount = _dbContext.Abouts.Count();
 
-            about.RoleId = 4;
+            //about.RoleId = 1;
+            //about.RoleId = 2;
+            //about.RoleId = 3;
+            var list = _dbContext.Roles.ToList();
+
+            foreach (var item in list)
+            {
+                about.RoleId = item.Id;
+            }
+
+
             about.Name = "User";
             about.Sequence = aboutCount + 1;
 

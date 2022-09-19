@@ -12,13 +12,20 @@
 
         <TelerikGrid Data=@GridData EditMode="@GridEditMode.Incell"
                      Height="500px"
+                     Sortable="true"
                      Pageable="true" PageSize=@PageSize OnUpdate=@UpdateItem OnDelete=@DeleteItem OnCreate=@CreateItem
                      OnRowClick="@OnRowClickHandler"
                      SelectionMode="@GridSelectionMode.Single"
-                     >
+                     RowDraggable="true"
+             OnRowDrop="@((GridRowDropEventArgs<Role> args) => OnRowDropHandler(args))">
+            <GridSettings>
+                <GridRowDraggableSettings DragClueField="@nameof(Role.Name)"></GridRowDraggableSettings>
+            </GridSettings>
             
             <GridToolBar>
                 <GridCommandButton Command="Add" Icon="add">Add Role</GridCommandButton>
+                <GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
+
             </GridToolBar>
             <GridColumns>
                 <GridColumn Field=@nameof(Role.Name) Title="Approve Stage Details Name" />
@@ -32,19 +39,17 @@
 
 
     <div class="col-6">
-        @*<TelerikGrid Data="@selectModel.AboutList" AutoGenerateColumns="true"
-                         Pageable="true" PageSize="4" Width="700px">
-         </TelerikGrid>*@
 
-
-
-        <TelerikGrid Data="@selectModel.AboutList" EditMode="@GridEditMode.Incell"
+        <TelerikGrid Data="@selectModel?.AboutList" EditMode="@GridEditMode.Incell"
                      Height="500px"
-                     Pageable="true" PageSize=@PageSize AutoGenerateColumns="true" OnUpdate=@UpdateItemAbout OnDelete=@DeleteItemAbout OnCreate=@CreateItemAbout>
+                     Pageable="true" PageSize=@PageSize OnUpdate=@UpdateItemAbout OnDelete=@DeleteItemAbout OnCreate=@CreateItemAbout>
             <GridToolBar>
                 <GridCommandButton Command="Add" Icon="add">Add About</GridCommandButton>
+
             </GridToolBar>
             <GridColumns>
+                 <GridColumn Field=@nameof(About.Name) Title="Approve Role Name" />
+                <GridColumn Field=@nameof(About.Amount) Title="Amount" />
              
                 <GridCommandColumn Title="Action">
                     <GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
@@ -56,21 +61,39 @@
 </div>
 
 
-@code {
 
+
+@code {
 
     int PageSize = 15;
     public List<Role>? GridData { get; set; }
     public List<About>? GridDataAbout { get; set; }
-    List<Role> aboutList;
+    Role? selectModel;
 
-    Role selectModel;
     protected override void OnInitialized()
     {
         LoadData();
         LoadDataAbout();
-        aboutList = new List<Role>();
         selectModel = new Role();
+    }
+
+    private void OnRowDropHandler(GridRowDropEventArgs<Role> args)
+    {
+        //The data manipulations in this example are to showcase a basic scenario.
+        //In your application you should implement them as per the needs of the project.
+
+        GridData.Remove(args.Item);
+
+        var destinationItemIndex = GridData.IndexOf(args.DestinationItem);
+
+        if (args.DropPosition == GridRowDropPosition.After)
+        {
+            destinationItemIndex++;
+        }
+
+        GridData.Insert(destinationItemIndex, args.Item);
+
+
     }
 
     //Role
@@ -83,7 +106,9 @@
 
     private void CreateItem(GridCommandEventArgs args)
     {
+       
         roleService.CreateRole((Role)args.Item);
+
         LoadData();
     }
 

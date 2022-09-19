@@ -6,6 +6,6 @@
         public string Name { get; set; } = string.Empty;
         public int Sequence { get; set; }
 
-        public List<About> AboutList { get; set; }
+        public List<About>? AboutList { get; set; }
     }
 }

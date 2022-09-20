@@ -7,6 +7,7 @@ namespace StateApprove.Services
         void Commit();
         void CreateRole(Role role);
         void DeleteRole(Role role);
+        Task<Role> GetByIdAsync(int id);
         IEnumerable<Role> GetRoles();
         void UpdateRole(Role role);
     }

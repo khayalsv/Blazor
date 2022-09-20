@@ -1,4 +1,5 @@
-﻿using MudBlazor;
+﻿using Microsoft.EntityFrameworkCore;
+using MudBlazor;
 using StateApprove.Data;
 using Telerik.DataSource.Extensions;
 using static StateApprove.Pages.GridTest;
@@ -14,6 +15,13 @@ namespace StateApprove.Services
         public RoleService(MyContext dbContext)
         {
             _dbContext = dbContext;
+
+        }
+
+        public async Task<Role> GetByIdAsync(int id)
+        {
+            var role = await _dbContext.Roles.FindAsync(id);
+            return role;
 
         }
 

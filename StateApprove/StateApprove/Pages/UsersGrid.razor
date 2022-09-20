@@ -1,0 +1,48 @@
+﻿@page "/singleuser"
+@using Microsoft.AspNetCore.WebUtilities
+@inject IAboutService aboutService
+
+@inject NavigationManager navManager
+@inject IRoleService roleService
+
+        <TelerikGrid Data="role?.AboutList" EditMode="@GridEditMode.Incell"
+                     Height="500px"
+                     Pageable="true" PageSize=@PageSize AutoGenerateColumns="true">
+        </TelerikGrid>
+
+
+@code {
+
+    int PageSize = 15;
+
+    Role? role;
+
+
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        SetQueryVariables();
+        await LoadData();
+
+    }
+
+    int _userId;
+
+    void SetQueryVariables()
+    {
+        var uri = navManager.ToAbsoluteUri(navManager.Uri);
+
+        if (QueryHelpers.ParseQuery(uri.Query).TryGetValue("id",out var id))
+        {
+            _userId = Convert.ToInt32(id);
+        }
+    }
+
+    private async Task LoadData()
+    {
+        role = await roleService.GetByIdAsync(_userId);
+    }
+
+
+}

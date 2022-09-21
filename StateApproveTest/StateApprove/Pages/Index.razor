@@ -1,0 +1,114 @@
+﻿@page "/"
+
+@using System.Collections.Generic;
+
+@inject BaseCompanyService _baseCompanyService
+@inject CompanyService _companyService
+@inject StageService _stageService
+
+@inject NavigationManager navManager
+
+
+<TelerikDropDownList Data="@GridDataBaseCompany"
+                     ValueField="Id"
+                     TextField="Name"
+                     @bind-Value="@SelectedItem"
+                     Id="selectId">
+</TelerikDropDownList>
+
+
+<TelerikGrid Data=@GridDataCompany EditMode="@GridEditMode.Incell"
+             Height="500px"
+             Sortable="true"
+             Pageable="true" PageSize=@PageSize OnUpdate=@UpdateItem OnDelete=@DeleteItem OnCreate=@CreateItem
+             OnRowDoubleClick="@OnRowDoubleClickHandler"
+             SelectionMode="@GridSelectionMode.Single"
+>
+    <GridToolBar>
+        <GridCommandButton Command="Add" Icon="add">Add Company</GridCommandButton>
+    </GridToolBar>
+    <GridColumns>
+        <GridColumn Field=@nameof(Company.Name) Title="Company Name" />
+        <GridColumn Field=@nameof(Company.Description) Title="Description" />
+        <GridCommandColumn Title="Action">
+            <GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
+        </GridCommandColumn>
+    </GridColumns>
+</TelerikGrid>
+
+
+
+@code {
+
+
+    public int SelectedItem { get; set; }
+
+    public IEnumerable<BaseCompany>? GridDataBaseCompany { get; set; }
+
+
+    int PageSize = 15;
+    public List<Company>? GridDataCompany { get; set; }
+    public List<Stage>? GridDataStage { get; set; }
+    Company? company;
+
+    BaseCompany? baseCompany;
+
+    protected override void OnInitialized()
+    {
+        company = new Company();
+        baseCompany = new BaseCompany();
+
+        GridDataBaseCompany = _baseCompanyService.GetBaseCompanys();
+
+        LoadDataStage();
+        LoadDataCompany();
+    }
+
+
+    //Company
+
+
+    private void LoadDataStage()
+    {
+        GridDataStage = _stageService.GetStages().ToList();
+    }
+
+
+    private void LoadDataCompany()
+    {
+        GridDataCompany = _companyService.GetCompanys().ToList();
+
+    }
+
+    private void CreateItem(GridCommandEventArgs args)
+    {
+
+        _companyService.CreateCompany((Company)args.Item);
+
+        LoadDataCompany();
+    }
+
+    private void DeleteItem(GridCommandEventArgs args)
+    {
+        _companyService.DeleteCompany((Company)args.Item);
+        LoadDataCompany();
+    }
+
+    private void UpdateItem(GridCommandEventArgs args)
+    {
+        _companyService.UpdateCompany((Company)args.Item);
+        LoadDataCompany();
+    }
+
+
+    void OnRowDoubleClickHandler(GridRowClickEventArgs args)
+    {
+        company = args.Item as Company;
+        GoToDetails(company.Id);
+    }
+
+    void GoToDetails(int id)
+    {
+        navManager.NavigateTo($"/stagemain?id={id}");
+    }
+}

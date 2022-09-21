@@ -1,0 +1,175 @@
+﻿@page "/stagemain"
+
+@using System.Collections.Generic;
+@using Microsoft.AspNetCore.WebUtilities
+
+@inject NavigationManager navManager
+
+@inject CompanyService _companyService
+@inject StageService _stageService
+@inject UserService _userService
+
+
+
+<div class="row">
+    <div class="col-6">
+
+        <TelerikGrid Data="company?.StageList" EditMode="@GridEditMode.Incell"
+                     Height="500px"
+                     Sortable="true"
+                     Pageable="true" PageSize=@PageSize OnUpdate=@UpdateItem OnDelete=@DeleteItem OnCreate=@CreateItem
+                     OnRowClick="@OnRowClickHandler"
+                     SelectionMode="@GridSelectionMode.Single"
+                     RowDraggable="true"
+             OnRowDrop="@((GridRowDropEventArgs<Stage> args) => OnRowDropHandler(args))">
+            <GridSettings>
+                <GridRowDraggableSettings DragClueField="@nameof(Stage.Name)"></GridRowDraggableSettings>
+            </GridSettings>
+            
+            <GridToolBar>
+   
+                <GridCommandButton Command="Add" Icon="add">Add Stage</GridCommandButton>
+                <GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
+
+            </GridToolBar>
+            <GridColumns>
+                <GridColumn Field=@nameof(Stage.Name) Title="Approve Stage Details Name" />
+                <GridColumn Field=@nameof(Stage.Sequence) Title="Sequence" />
+                <GridCommandColumn Title="Action">
+                    <GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
+                </GridCommandColumn>
+            </GridColumns>
+        </TelerikGrid>
+    </div>
+
+
+    <div class="col-6">
+
+        <TelerikGrid Data="@stage?.UserList" EditMode="@GridEditMode.Incell"
+                     Height="500px"
+                     Pageable="true" PageSize=@PageSize OnUpdate=@UpdateItemUser OnDelete=@DeleteItemUser OnCreate=@CreateItemUser AutoGenerateColumns="true">
+        </TelerikGrid>
+     </div>
+
+</div>
+
+
+
+
+@code {
+
+    int PageSize = 15;
+    int _userId;
+    public List<Stage>? GridDataStage { get; set; }
+    public List<User>? GridDataUser { get; set; }
+    Stage? stage;
+    Company? company;
+
+    protected override async Task OnInitializedAsync()
+    {
+        LoadDataStage();
+        LoadDataUser();
+        SetQueryVariables();
+        stage = new Stage();
+        await LoadData();
+
+    }
+
+
+    void SetQueryVariables()
+    {
+        var uri = navManager.ToAbsoluteUri(navManager.Uri);
+
+        if (QueryHelpers.ParseQuery(uri.Query).TryGetValue("id", out var id))
+        {
+            _userId = Convert.ToInt32(id);
+        }
+    }
+
+    private async Task LoadData()
+    {
+        company = await _companyService.GetByIdAsync(_userId);
+
+    }
+
+
+
+    //Stage
+
+    private void LoadDataStage()
+    {
+        GridDataStage = _stageService.GetStages().ToList();
+
+    }
+
+    private void CreateItem(GridCommandEventArgs args)
+    {
+       
+        _stageService.CreateStage((Stage)args.Item);
+
+        LoadDataStage();
+    }
+
+    private void DeleteItem(GridCommandEventArgs args)
+    {
+        _stageService.DeleteStage((Stage)args.Item);
+        LoadDataStage();
+    }
+
+    private void UpdateItem(GridCommandEventArgs args)
+    {
+        _stageService.UpdateStage((Stage)args.Item);
+        LoadDataStage();
+    }
+
+
+    //User
+
+
+    private void LoadDataUser()
+    {
+        GridDataUser = _userService.GetUsers().ToList();
+    }
+
+    private void CreateItemUser(GridCommandEventArgs args)
+    {
+        //_userService.CreateUser((User)args.Item);
+        LoadDataUser();
+    }
+
+    private void DeleteItemUser(GridCommandEventArgs args)
+    {
+        _userService.DeleteUser((User)args.Item);
+        LoadDataUser();
+    }
+
+    private void UpdateItemUser(GridCommandEventArgs args)
+    {
+        _userService.UpdateUser((User)args.Item);
+        LoadDataUser();
+    }
+
+    void OnRowClickHandler(GridRowClickEventArgs args)
+    {
+        stage = args.Item as Stage;
+    }
+
+
+
+    private void OnRowDropHandler(GridRowDropEventArgs<Stage> args)
+    {
+       
+        GridDataStage.Remove(args.Item);
+
+        var destinationItemIndex = GridDataStage.IndexOf(args.DestinationItem);
+
+        if (args.DropPosition == GridRowDropPosition.After)
+        {
+            destinationItemIndex++;
+        }
+
+        GridDataStage.Insert(destinationItemIndex, args.Item);
+
+    }
+
+}
